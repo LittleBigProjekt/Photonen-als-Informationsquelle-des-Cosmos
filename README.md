@@ -1,14 +1,15 @@
 # Photonen als Informationsquelle des Cosmos  
 ### Ein theoretisches Modell über Photonen als dynamische Informationsträger  
-**Autor:** Manuel  
+**Autor:** Manuel Julin
 **Lizenz:** CC-BY-SA 4.0  
 
 ---
 
 ## 📘 Überblick
 Dieses Repository enthält eine theoretische Arbeit über ein alternatives Verständnis von Licht und Photonen.  
-Die zentrale Idee:  
-**Ein Photon ist kein klassisches Teilchen, sondern ein Informationspaket, dessen Zustand durch jede Interaktion transformiert wird.**
+Die zentrale Idee lautet:
+
+> Ein Photon ist kein klassisches Teilchen, sondern ein Informationspaket, dessen Zustand durch jede Interaktion transformiert wird.
 
 Die Theorie führt den Begriff des **photonischen Informationsvektors (PIV)** ein, der aus sechs fundamentalen Parametern besteht:
 
@@ -106,3 +107,4 @@ Manuel Julin (2026). *Photonische Informationsvektoren – Ein Modell für Licht
 ## 🤝 Beiträge
 Diskussionen, Ideen und Erweiterungen sind willkommen.  
 Pull Requests und Issues können jederzeit erstellt werden.
+n.
