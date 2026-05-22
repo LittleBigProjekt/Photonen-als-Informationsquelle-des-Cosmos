@@ -1,32 +1,32 @@
-# Photonische Informationsvektoren  
-### Ein Modell für Licht als dynamischen Informationsträger  
-**Version 1.0 – von Manuel Julin (2026)**  
-**Lizenz: Creative Commons CC‑BY‑SA 4.0**
+# Photonische Informationsvektoren – Version 1.1  
+### Ein erweitertes Modell über Photonen als dynamische Informationsträger  
+**Autor:** Manuel  
+**Lizenz:** CC-BY-SA 4.0  
 
 ---
 
-## Abstract
-Diese Theorie beschreibt Photonen nicht als klassische Teilchen oder Wellen, sondern als Informationspakete, deren Zustand durch Interaktionen mit Materie transformiert wird.  
-Ein Photon besitzt sechs fundamentale Zustandsparameter — Energie, Frequenz, Polarisation, Phase, Impuls und Richtung — die gemeinsam einen photonischen Informationsvektor (PIV) bilden.  
-Jede Interaktion verändert diesen Vektor und überträgt Information auf Materie oder andere Felder.  
-Damit wird Licht als Informationsfluss verstanden, der die Struktur der physikalischen Welt abbildet und verändert.
+## 0. Motivation durch Beobachtung
+
+Diese Theorie entstand aus einer einfachen, aber tiefen physikalischen Beobachtung:
+
+- Sonnenlicht reflektiert auf einem Smartphone ein **perfektes Bild** des Displays.  
+- Derselbe Lichtstrahl, durch einen **engen Spalt** zwischen zwei Fingern geleitet, erzeugt an der Wand einen **runden Lichtfleck**, der die Sonne abbildet – nicht den Bildschirm.  
+- Der Spalt ist nicht rund, dennoch entsteht ein **symmetrisches, kreisförmiges Muster**.
+
+Diese Beobachtung zeigt:
+
+1. Licht trägt **strukturierte Information** über seine Quelle.  
+2. Jede Interaktion (Reflexion, Spalt, Beugung) **transformiert** diese Information.  
+3. Ein enger Spalt filtert **Informationskanäle**, sodass nur die reine Information der ursprünglichen Quelle übrig bleibt.  
+4. Jeder „Lichtkanal“ enthält die **vollständige Information** der Quelle.
+
+Diese Einsichten bilden die Grundlage der erweiterten Theorie.
 
 ---
 
-## 1. Einleitung
-Die klassische Physik beschreibt Licht als Welle, die Quantenphysik als Teilchen, und die Quantenfeldtheorie als Anregung eines Feldes.  
-Diese Modelle sind korrekt, aber sie beschreiben Licht aus unterschiedlichen Perspektiven.
+## 1. Der photonische Informationsvektor (PIV)
 
-Diese Theorie schlägt eine alternative Sichtweise vor:
-
-> Ein Photon ist ein dynamischer Informationszustand, der durch Interaktionen transformiert wird.
-
-Damit wird Licht nicht als Objekt, sondern als Prozess verstanden.
-
----
-
-## 2. Der photonische Informationsvektor (PIV)
-Ein Photon wird durch einen 6‑dimensionalen Informationsvektor beschrieben:
+Ein Photon wird beschrieben durch den 6‑dimensionalen Informationsvektor:
 
 
 
@@ -38,19 +38,54 @@ P = (E, f, \Pi, \phi, p, \vec{d})
 
 mit:
 
-1. **Energie (E)**  
-2. **Frequenz (f)**  
-3. **Polarisation (Π)**  
-4. **Phase (φ)**  
-5. **Impuls (p)**  
-6. **Richtung (→d)**  
+- **E** – Energie  
+- **f** – Frequenz  
+- **Π** – Polarisation  
+- **φ** – Phase  
+- **p** – Impuls  
+- **→d** – Richtung  
 
-Diese Parameter definieren vollständig den Informationszustand eines Photons.
+Diese Parameter definieren den vollständigen Informationszustand eines Photons.
 
 ---
 
-## 3. Interaktionen als Informations-Transformation
-Bei jeder Interaktion zwischen Photon und Materie findet eine Transformation statt:
+## 2. Photonen als Träger vollständiger Quellinformation
+
+Die zentrale Erweiterung der Version 1.1 lautet:
+
+> **Jedes Photon trägt die vollständige Information seiner Quelle, nicht nur einen Ausschnitt.**
+
+Das bedeutet:
+
+- Ein reflektierter Lichtstrahl kann ein **komplettes Bild** transportieren.  
+- Jeder einzelne Informationskanal (Mode) enthält die **gesamte Struktur** der Quelle.  
+- Das sichtbare Bild entsteht durch **Überlagerung** dieser Kanäle.  
+- Ein Spalt filtert Kanäle heraus, wodurch ein neues Muster entsteht.
+
+Diese Eigenschaft entspricht der holografischen Natur von Wellenfeldern, wird hier jedoch allgemeiner formuliert.
+
+---
+
+## 3. Informationskanäle (Moden) des Lichtfeldes
+
+Ein Lichtfeld besteht aus vielen **Informationskanälen**, die in der Physik als *Moden* bezeichnet werden.
+
+Jeder Kanal trägt:
+
+- die vollständige räumliche Struktur  
+- die Frequenzinformation  
+- die Phaseninformation  
+- die Richtungsverteilung  
+- die Polarisation  
+- die Intensitätsverteilung  
+
+Die Überlagerung dieser Kanäle erzeugt das sichtbare Bild.
+
+---
+
+## 4. Interaktionen als Informationsfilter
+
+Jede Interaktion zwischen Licht und Materie wirkt als **Informationsfilter**:
 
 
 
@@ -60,60 +95,113 @@ P_{neu} = T(P_{alt}, M)
 
 
 
-wobei **M** die Eigenschaften der Materie beschreibt (z. B. Absorptionsspektrum, Reflexionsgrad, Streuparameter).
+Beispiele:
 
-### Arten von Transformationen
-- **Absorption:** Photon verschwindet, Information geht in Materie über  
-- **Emission:** Neues Photon entsteht mit neuem Informationsvektor  
-- **Streuung:** Richtung, Phase, Polarisation ändern sich  
-- **Reflexion:** Phase und Polarisation werden modifiziert  
+### 4.1 Reflexion  
+Erhält die Struktur weitgehend → das Bild bleibt sichtbar.
 
-Das Photon speichert keine Historie, aber sein Zustand ist das Ergebnis aller bisherigen Transformationen.
+### 4.2 Streuung  
+Mischt Kanäle → Information wird teilweise zerstört.
 
----
+### 4.3 Enge Spalte  
+Filtern fast alle Moden → nur die Grundinformation der Quelle bleibt.
 
-## 4. Die Welt als Informationsnetzwerk
-In diesem Modell besteht die physikalische Realität aus:
+### 4.4 Beugung  
+Erzeugt ein neues Muster, abhängig von der Quellstruktur.
 
-- Materie als Informationsspeicher  
-- Photonen als Informationsüberträger  
-- Interaktionen als Transformationsprozesse  
+**Beispiel aus der Beobachtung:**  
+Sonnenlicht enthält eine **kreisförmige Quellstruktur**.  
+Der Spalt filtert Moden → nur die Grundstruktur bleibt → kreisförmiger Lichtfleck.
 
-Damit entsteht ein Netzwerk aus Informationsflüssen, das die Struktur der Welt bestimmt.
-
-Dieses Modell ist kompatibel mit:
-
-- Quanteninformationstheorie  
-- Quantenfeldtheorie  
-- Holografischem Prinzip  
-- Entropiebasierten Modellen  
-
-Es bietet jedoch eine eigene Perspektive, indem es Photonen explizit als Informationsvektoren definiert.
+Die Form des Musters wird also nicht durch den Spalt bestimmt, sondern durch die **Information der Quelle**.
 
 ---
 
-## 5. Konsequenzen und Vorhersagen
-Das Modell führt zu mehreren testbaren Aussagen:
+## 5. Informationsverlust und -erhaltung
 
-1. Jede Interaktion verändert mindestens einen der sechs Parameter.  
-2. Information geht nicht verloren, sondern wird transformiert.  
-3. Interferenz entsteht durch Überlagerung von Informationsvektoren.  
-4. Polarisation ist ein aktiver Informationskanal.  
-5. Die „Teilchen‑Welle‑Dualität“ wird ersetzt durch:  
-   > Ein Photon ist ein Informationszustand, der sich wellenartig ausbreitet und punktförmig interagiert.
+### 5.1 Erhaltende Transformationen  
+- Reflexion  
+- Brechung  
+- Spiegelung  
+- Kohärente Streuung  
 
----
+Diese erhalten die Modenstruktur → Bild bleibt sichtbar.
 
-## 6. Lizenz
-Diese Theorie wird veröffentlicht unter:
+### 5.2 Strukturzerstörende Transformationen  
+- Enge Spalte  
+- Rauhe Oberflächen  
+- Inkoherente Streuung  
+- Absorption + Reemission  
 
-### Creative Commons CC‑BY‑SA 4.0  
-- Jeder darf sie nutzen  
-- Jeder muss den ursprünglichen Autor nennen  
-- Jede Weiterentwicklung muss ebenfalls frei bleiben  
-- Niemand kann sie patentieren  
+Diese zerstören die Modenstruktur → neue Information entsteht.
 
 ---
 
-## 7. Zitierempfehlung
-Manuel (2026). *Photonische Informationsvektoren – Ein Modell für Licht als dynamischen Informationsträger.* Version 1.0. CC‑BY‑SA 4.0.
+## 6. Konsequenzen für das Verständnis von Licht
+
+Die Theorie führt zu folgenden Aussagen:
+
+1. Ein Photon ist ein **Informationszustand**, kein Teilchen.  
+2. Ein Lichtfeld ist ein **Informationsnetzwerk** aus vielen Kanälen.  
+3. Jede Interaktion ist eine **Informationsoperation**.  
+4. Die sichtbare Welt ist das Ergebnis von **Informationsfiltern**.  
+5. Die Quelle bestimmt die Struktur – nicht der Weg.  
+6. Ein Spalt zeigt die **Grundinformation** der Quelle, nicht seine eigene Form.
+
+---
+
+## 7. Erweiterte mathematische Formulierung
+
+Ein Lichtfeld \( L \) besteht aus vielen Informationskanälen:
+
+
+
+\[
+L = \sum_{i=1}^{N} P_i
+\]
+
+
+
+Ein Spalt wirkt als Filteroperator \( F \):
+
+
+
+\[
+L_{neu} = F(L)
+\]
+
+
+
+Für sehr kleine Spalte gilt näherungsweise:
+
+
+
+\[
+F \approx \text{Low-Pass-Filter}
+\]
+
+
+
+→ nur die Grundstruktur der Quelle bleibt sichtbar.
+
+---
+
+## 8. Schlussfolgerung
+
+Die Version 1.1 der Theorie zeigt:
+
+- Licht ist ein **Informationsmedium**.  
+- Photonen sind **Vektoren im Informationsraum**.  
+- Interaktionen sind **Operatoren**, die Information filtern.  
+- Die sichtbare Welt ist ein **Abbild der Informationsstruktur der Quellen**.  
+- Die ursprüngliche Beobachtung liefert einen direkten experimentellen Hinweis darauf.
+
+Damit ist die Theorie nicht nur philosophisch, sondern auch physikalisch konsistent und erweiterbar.
+
+---
+
+## Lizenz
+
+Dieses Werk steht unter der Creative Commons Attribution-ShareAlike 4.0 International License.  
+https://creativecommons.org/licenses/by-sa/4.0/
+tionsträger.* Version 1.0. CC‑BY‑SA 4.0.
