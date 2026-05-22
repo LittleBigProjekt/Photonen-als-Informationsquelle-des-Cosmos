@@ -1,0 +1,142 @@
+version 1.2
+# Photonische Informationsvektoren – Version 1.2
+### Ein kombiniertes Modell über Photonen als dynamische Informationsträger
+**Autor:** Manuel Julin 
+**Lizenz:** CC-BY-SA 4.0
+
+---
+
+## 0. Motivation durch Beobachtung
+
+Diese Theorie entstand aus direkten Beobachtungen im Alltag:
+
+- Sonnenlicht reflektiert auf einem Smartphone ein **abbildtreues Bild** des Displays.  
+- Derselbe Lichtstrahl, durch einen **engen Spalt** zwischen zwei Fingern geleitet, erzeugt an der Wand einen **runden Lichtfleck**, der die Sonne abbildet – nicht den Bildschirm.  
+- Der Spalt ist nicht rund, dennoch entsteht ein **symmetrisches, kreisförmiges Muster**.
+
+Diese Beobachtungen legen nahe:
+
+1. Licht transportiert **strukturierte Information** über seine Quelle.  
+2. Informationskanäle (Moden) überlagern sich zu einem sichtbaren Bild.  
+3. Interaktionen mit Materie wirken als **Filteroperatoren**, die Moden selektieren oder zerstören.
+
+---
+
+## 1. Grundbegriffe und Präzisierungen
+
+**Photonischer Informationsvektor (PIV)**  
+Ein Photon wird beschrieben durch den Informationsvektor
+
+
+\[
+P = (E, f, \Pi, \phi, p, \vec{d})
+\]
+
+
+mit \(E = h f\).
+
+**Wichtige Klarstellungen**  
+- Ein Photon entsteht bereits mit einer Frequenz; Farbe ist die Interpretation dieser Frequenz durch ein Messsystem.  
+- Ein einzelnes Photon ist ein Informationsvektor; das sichtbare Bild entsteht durch die Überlagerung vieler solcher Vektoren (Lichtfeld).  
+- Im Vakuum haben Photonen dieselbe Ausbreitungsgeschwindigkeit \(c\). In Materie treten Dispersionseffekte auf, die Frequenzen unterschiedlich beeinflussen.
+
+---
+
+## 2. Moden und Informationskanäle
+
+Ein Lichtfeld \(L\) lässt sich in einer Orthonormalbasis von Moden \(\{u_k\}\) darstellen:
+
+
+\[
+L(\vec{r},t)=\sum_{k} a_k(t)\,u_k(\vec{r})
+\]
+
+
+Jede Mode \(u_k\) trägt vollständige strukturelle Informationen (Amplitude, Phase, Polarisation, Richtungsverteilung). Die sichtbare Struktur ist die Interferenz und Überlagerung dieser Moden.
+
+---
+
+## 3. Interaktionen als Operatoren
+
+Jede Wechselwirkung mit Materie ist ein Operator \(T_M\) auf dem Modenraum:
+
+
+\[
+L_{\text{nach}} = T_M[L_{\text{vor}}]
+\]
+
+
+Beispiele:
+
+- **Reflexion**: \(T_{\text{refl}}\) erhält Modenstruktur weitgehend.  
+- **Streuung**: \(T_{\text{streu}}\) mischt Moden und reduziert Kohärenz.  
+- **Enge Spalte**: \(T_{\text{spalt}}\) wirkt näherungsweise als Filteroperator \(F\), der viele Moden unterdrückt.  
+- **Beugung**: \(T_{\text{beug}}\) transformiert die Moden in eine neue Winkelverteilung.
+
+In Fourierraum gilt:
+
+
+\[
+\tilde{L}_{\text{nach}}(\vec{k}) = H_M(\vec{k})\,\tilde{L}_{\text{vor}}(\vec{k})
+\]
+
+
+wobei \(H_M\) die Übertragungsfunktion des Materials oder der Öffnung ist.
+
+---
+
+## 4. Informationsverlust Erhaltung und Messung
+
+- **Erhaltende Transformationen** (Reflexion, kohärente Brechung) bewahren die Modenstruktur.  
+- **Strukturzerstörende Transformationen** (enge Spalte, inkoherente Streuung, Absorption+Reemission) reduzieren die effektive Informationsdimension.
+
+Messung ist eine Projektion auf eine Messbasis \(\{m_j\}\):
+
+
+\[
+I_j = \langle m_j, L_{\text{nach}}\rangle
+\]
+
+
+Filter reduzieren die Anzahl signifikanter \(a_k\) und machen bestimmte Komponenten messbar.
+
+---
+
+## 5. Konsequenzen Hypothesen und Vorhersagen
+
+- **Photonen als Informationszustände**: Photonen sind Vektoren in einem Informationsraum; Lichtfelder sind Netzwerke dieser Vektoren.  
+- **Quelle vor Weg**: Die Struktur des Musters wird primär durch die Quellinformation bestimmt; der Weg wirkt als Filter.  
+- **Messprozess**: Beobachtung ist eine Informationsoperation, die Kanäle selektiert und damit das Verhalten „kollabiert“ erscheinen lässt.  
+- **Material als Informationsspeicher**: Dispersion und Übergangszeiten sind Ausdruck der Informationsdynamik des Mediums.
+
+---
+
+## 6. Experimentelle Vorschläge
+
+**A Reflexionsabbildungstest**  
+- Herzförmiger Spiegel, Sonnenlicht, Wandkamera. Ziel: Erhalt der Kontur in Modenmessung.
+
+**B Spaltfiltervergleich**  
+- Displaybild vs. Sonne durch gleichen Spalt. Ziel: Nachweis, dass Spalt Moden filtert und Quellgrundstruktur hervorhebt.
+
+**C Fourieranalyse**  
+- Fourierlinse und Kamera zur Messung von \(\tilde{L}(\vec{k})\) vor/nach Filter. Ziel: Bestimmung von \(H(\vec{k})\).
+
+**D Dispersionsexperimente**  
+- Weißes Licht durch verschiedene Medien; Messung von Phasen- und Gruppengeschwindigkeit als Funktion der Frequenz.
+
+---
+
+## 7. Nächste Schritte
+
+- Mathematische Ausarbeitung des Operatorsraums \(T_M\) für typische Interaktionen.  
+- Numerische Simulation einfacher Setups (Spalt, Spiegel) mit Modenzerlegung.  
+- Aufbau einfacher Experimente zur Validierung der Filterhypothese.  
+- Ausarbeitung eines Kapitels über philosophische Implikationen der Informationssicht.
+
+---
+
+## Lizenz
+
+Dieses Werk steht unter der Creative Commons Attribution-ShareAlike 4.0 International License.  
+https://creativecommons.org/licenses/by-sa/4.0/
