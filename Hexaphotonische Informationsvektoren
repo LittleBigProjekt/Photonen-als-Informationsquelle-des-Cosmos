@@ -1,0 +1,188 @@
+# Hexaphotone
+## Die sechsdimensionalen Informationspakete des Lichts die nicht kollabieren
+**Autor:** Manuel Julin 
+**Version:** 1.3  
+**Lizenz:** CC‑BY‑SA 4.0
+
+---
+
+## 0 Motivation durch Beobachtung
+
+Diese Arbeit entstand aus einfachen, wiederholbaren Alltagsbeobachtungen:
+
+- Sonnenlicht, das auf einen geformten Spiegel trifft, kann die Form des Spiegels auf eine Wand projizieren.  
+- Derselbe Lichtstrahl, durch einen engen Spalt geleitet, erzeugt ein symmetrisches, kreisförmiges Muster, das die Sonne abbildet, nicht die Form des Spiegels.  
+- Ein Spalt mit nicht‑runder Geometrie kann dennoch ein rundes Muster erzeugen.
+
+Diese Beobachtungen legen nahe:
+
+- Licht transportiert **strukturierte Information** über seine Quelle.  
+- Interaktionen mit Materie wirken als **Informationsfilter**.  
+- Unter geeigneten Bedingungen trägt das Licht vollständige strukturelle Information, die sich in Mustern manifestiert.
+
+---
+
+## 1 Offizielle Definition Hexaphotone
+
+**Hexaphotone** sind hypothetische, sechsdimensionale Informationsobjekte, die aus der strukturellen Beschreibung von Lichtfeldern entstehen.  
+Ein Hexaphoton ist ein theoretisches Modell, das den Informationszustand eines Lichtquants durch sechs fundamentale Komponenten beschreibt. Im Unterschied zu einer rein quantenmechanischen Beschreibung wird hier der Messprozess als Filteroperation modelliert; Hexaphotone sind in diesem Modell kontinuierliche Informationszustände, die nicht im Sinne eines Zustandskollapses verschwinden.
+
+**Formale Definition**  
+Ein Hexaphoton wird durch den **Hexaphotonenvektor** \(H\) beschrieben:
+
+
+\[
+H = (E, f, \Pi, \phi, p, \vec{d})
+\]
+
+
+wobei:
+
+- **E** – Energie  
+- **f** – Frequenz  
+- **Π** – Polarisation  
+- **φ** – Phase  
+- **p** – Impuls  
+- **→d** – Richtung
+
+Diese sechs Komponenten bilden den minimalen Informationssatz, der nötig ist, um die wesentlichen strukturellen Eigenschaften einer Quelle in diesem Modell zu repräsentieren.
+
+---
+
+## 2 Lichtfeld Moden und Informationskanäle
+
+**Lichtfeld als Superposition**  
+Ein reales Lichtfeld \(L(\vec{r},t)\) wird als Überlagerung vieler Hexaphotone verstanden. In einer geeigneten Modenbasis \(\{u_k(\vec{r})\}\) lässt sich schreiben:
+
+
+\[
+L(\vec{r},t)=\sum_{k} a_k(t)\,u_k(\vec{r})
+\]
+
+
+Die komplexen Amplituden \(a_k\) tragen die Informationen (Amplitude, Phase, Polarisation, Richtungsverteilung) der jeweiligen Mode.
+
+**Informationskanäle**  
+Jede Mode ist ein Informationskanal. Die sichtbare Struktur entsteht durch Interferenz und Überlagerung dieser Kanäle. Ein Kanal kann in geeigneter Repräsentation vollständige strukturelle Informationen der Quelle enthalten; das sichtbare Bild ist das Ergebnis der kohärenten Summe vieler solcher Kanäle.
+
+---
+
+## 3 Interaktionen als Operatoren im Modenraum
+
+**Operatorformalismus**  
+Wechselwirkungen mit Materie werden als lineare oder nichtlineare Operatoren \(T_M\) auf dem Modenraum modelliert:
+
+
+\[
+L_{\text{nach}} = T_M[L_{\text{vor}}]
+\]
+
+
+In Fourierraumnotation gilt allgemein:
+
+
+\[
+\tilde{L}_{\text{nach}}(\vec{k}) = H_M(\vec{k})\,\tilde{L}_{\text{vor}}(\vec{k})
+\]
+
+
+wobei \(H_M(\vec{k})\) die Übertragungsfunktion des Materials oder der Öffnung ist.
+
+**Beispiele für Operatoren**
+
+- **Reflexion** \(T_{\text{refl}}\) erhält die Modenstruktur weitgehend.  
+- **Streuung** \(T_{\text{streu}}\) mischt Moden und reduziert Kohärenz.  
+- **Enge Öffnung** \(T_{\text{spalt}}\) wirkt als Filteroperator, der viele Moden unterdrückt und nur niederfrequente Komponenten durchlässt.  
+- **Beugung** \(T_{\text{beug}}\) transformiert die Moden in eine neue Winkelverteilung.
+
+**Messung als Projektion**  
+Eine Messung ist eine Projektion auf eine Messbasis \(\{m_j\}\):
+
+
+\[
+I_j = \langle m_j, L_{\text{nach}}\rangle
+\]
+
+
+Filter reduzieren die effektive Dimensionalität des Modenvektors und machen bestimmte Komponenten messbar. In diesem Modell erscheint der quantenmechanische Kollaps als Folge einer Informationsselektion durch den Messoperator.
+
+---
+
+## 4 Konsequenzen Hypothesen und Vorhersagen
+
+**Kernaussagen**
+
+- **Hexaphotone als Informationsobjekte**: Licht besteht aus Netzwerken von Hexaphotonen, die Information über Quellen transportieren.  
+- **Quelle vor Weg**: Die Struktur des beobachteten Musters wird primär durch die Quellinformation bestimmt; der Weg wirkt als Filter.  
+- **Messprozess als Filter**: Beobachtung ist eine Informationsoperation, die Kanäle selektiert; dadurch erscheinen Zustände reduziert.  
+- **Material als Informationsdynamik**: Dispersion, Übergangszeiten und Absorptionscharakteristika sind Ausdruck der Informationsdynamik des Mediums.
+
+**Vorhersagen**
+
+- Enge Spalte betonen niederfrequente Moden und zeigen die Grundstruktur der Quelle.  
+- Reflexion an geformten Oberflächen kann die Form des Reflektors in der Modenstruktur erhalten.  
+- Dispersion in Materialien verändert Phasen‑ und Gruppengeschwindigkeit frequenzabhängig und damit die Informationsübertragung.  
+- Unterschiedliche Materialien zeigen charakteristische Modenfilterfunktionen \(H_M(\vec{k})\), die sich messen lassen.
+
+---
+
+## 5 Experimentelle Vorschläge Validierung
+
+**A Reflexionsabbildungstest**  
+- Aufbau: Sonne → geformter Spiegel (z. B. Herzform) → Wandkamera.  
+- Messung: Intensitätsverteilung, Polarisationsmessung, Phasenrekonstruktion falls möglich.  
+- Ziel: Nachweis, dass die Spiegelkontur in der Modenstruktur erhalten bleibt.
+
+**B Spaltfiltervergleich**  
+- Aufbau: Displaybild vs. Sonne durch denselben Spalt; gleiche Detektorposition.  
+- Messung: Mustervergleich, Fourieranalyse.  
+- Ziel: Zeigen, dass der Spalt Moden filtert und die Quellgrundstruktur hervorhebt.
+
+**C Fourieranalyse**  
+- Aufbau: Fourierlinse und Kamera zur Messung von \(\tilde{L}(\vec{k})\) vor und nach Filter.  
+- Ziel: Bestimmung der Übertragungsfunktion \(H(\vec{k})\).
+
+**D Dispersionsexperimente**  
+- Aufbau: Weißes Licht durch verschiedene Medien; interferometrische Messung von Phasen und Gruppengeschwindigkeit.  
+- Ziel: Quantifizieren, wie Materialeigenschaften die Informationsdynamik verändern.
+
+---
+
+## 6 Erweiterungen Diskussion und letzte Gedanken
+
+**Warum sechs Dimensionen**  
+Die Wahl von sechs Komponenten für den Hexaphotonenvektor ist ein bewusstes, konzeptionelles Minimalmodell. Es fasst die wichtigsten, unmittelbar messbaren Informationsgrößen zusammen: Energie, Frequenz, Polarisation, Phase, Impuls und Richtung. Dieses Set ist **minimal**, **physikalisch bedeutungsvoll** und **praktisch handhabbar**.
+
+**Mögliche Erweiterungen**  
+Für spätere Versionen sind zusätzliche Informationsdimensionen denkbar, etwa:
+
+- **Kohärenzparameter** als Maß für zeitliche und räumliche Kohärenz  
+- **Orbitaler Drehimpuls OAM** als zusätzliche Modenfreiheit  
+- **Spektrale Breite** als Maß für Bandbreite und Dephasierung  
+- **Modenindex** zur Kennzeichnung transversaler Moden  
+- **Topologische Ladung** für Felder mit nichttrivialer Topologie
+
+Diese Erweiterungen führen zu Begriffen wie **Heptaphoton** oder **Octaphoton** in einer hierarchischen Modellfamilie. Für die aktuelle Arbeit bleibt das Hexaphoton das zentrale, elegante Grundmodell.
+
+**Letzte Gedanken zur Interpretation**  
+- Das Hexaphotonenmodell bietet eine Brücke zwischen klassischer Wellenoptik, Fourier‑Optik und informationsorientierter Sichtweise.  
+- Es liefert eine alternative, anschauliche Erklärung für Messphänomene, ohne die etablierte Quantenmechanik zu ersetzen.  
+- Die Formulierung als Operatorraum erlaubt konkrete Experimente und numerische Simulationen.  
+- Humorvolle Begriffe wie Hexaphotone und der Zusatz "die nicht kollabieren" sind bewusst gewählt: sie signalisieren eine neue Perspektive, bleiben aber wissenschaftlich präzise.
+
+---
+
+## 7 Nächste Schritte praktisch
+
+- Mathematische Ausarbeitung typischer Operatoren \(T_M\) für Spiegel, Spalt und Streuobjekte.  
+- Numerische Simulationen einfacher Setups mit Modenzerlegung (z. B. Fresnel‑Propagation, Fourier‑Propagation).  
+- Aufbau einfacher Experimente am Chaostreff oder in einer Maker‑Werkstatt.  
+- Veröffentlichung als Preprint auf Zenodo und Projektseite auf OSF zur offenen Diskussion.  
+- Kontaktaufnahme mit Forschenden in Quantenoptik und Photonik zur fachlichen Begutachtung.
+
+---
+
+## Lizenz
+
+Dieses Werk steht unter der Creative Commons Attribution‑ShareAlike 4.0 International License.  
+https://creativecommons.org/licenses/by-sa/4.0/
