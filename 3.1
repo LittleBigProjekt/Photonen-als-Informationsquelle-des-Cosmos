@@ -1,8 +1,8 @@
 # Hexaphotone — Baustein 1: Definition des Hexaphoton-Vektors
 
-> **Status:** Arbeitsdokument (work in progress) — Revision 2
+> **Status:** Arbeitsdokument (work in progress) — Revision 3
 > **Zweck:** Erster Baustein des Hexaphotone-Notations-Systems.
-> Dieses Dokument definiert *ein einzelnes Hexaphoton* sowie das *Ensemble*.
+> Dieses Dokument definiert *ein einzelnes Hexaphoton* sowie das *Hexafeld*.
 > Es macht **keine** neuen physikalischen Behauptungen — es ist eine
 > Umformulierung etablierter klassischer Wellenoptik in kompakter Notation.
 
@@ -15,11 +15,11 @@ Das Hexaphotone-System kennt **zwei Ebenen**, die strikt getrennt werden:
 | Ebene | Symbol | Beschreibung |
 |-------|--------|--------------|
 | **Lichtelement** | `H` | Ein einzelnes Hexaphoton — eine idealisierte Mode bzw. ein Strahl. |
-| **Quelle / Bild** | `{Hᵢ}` | Ein Ensemble vieler Hexaphotonen. Alle Aussagen über Form, Bild, Projektion, Interferenz und räumliche Position gehören **ausschließlich** auf diese Ebene. |
+| **Hexafeld** | `{Hᵢ}` | Ein Ensemble vieler Hexaphotonen (eine Quelle, ein Bild). Alle Aussagen über Form, Bild, Projektion, Interferenz und räumliche Position gehören **ausschließlich** auf diese Ebene. |
 
 **Wichtige Konsequenz:** Ein einzelnes `H` ist *positionslos*. Es trägt eine
 *Richtung* (`d⃗`), aber **keinen Herkunftsort**. Die räumliche Position einer
-Quelle ist allein aus dem Ensemble `{Hᵢ}` rekonstruierbar (durch Rückverfolgung
+Quelle ist allein aus dem Hexafeld `{Hᵢ}` rekonstruierbar (durch Rückverfolgung
 divergierender Richtungen — das Funktionsprinzip von Auge und Kamera).
 
 ---
@@ -34,7 +34,7 @@ Kern von Baustein 1. Sie behebt die zentrale Mehrdeutigkeit der Vorversion (v3.0
 |--------|--------|-----------|
 | **A — Eigenschaften** | `f`, `Pᵢ`, `d⃗` | Echte, unabhängige Freiheitsgrade *eines einzelnen* Hexaphotons. |
 | **B — Abgeleitet** | `E`, `p⃗` | Folgen über feste Constraints aus Klasse A. Deklarierte Redundanz. |
-| **C — Relation** | `φ` | **Keine** Eigenschaft eines einzelnen `H`. Nur als *Beziehung zwischen* Hexaphotonen im Ensemble definiert. |
+| **C — Relation** | `φ` | **Keine** Eigenschaft eines einzelnen `H`. Nur als *Beziehung zwischen* Hexaphotonen im Hexafeld definiert. |
 
 ---
 
@@ -111,7 +111,7 @@ Hexaphotonen** — denn nur Phasendifferenzen sind beobachtbar (sie steuern
 Interferenz: Berg+Berg = Verstärkung, Berg+Tal = Auslöschung).
 
 **Definition (Klasse C):** Die Phase ist eine **Relationsgröße auf
-Ensemble-Ebene**. In einem Ensemble `{Hᵢ}` wird ein Referenz-Hexaphoton
+Hexafeld-Ebene**. In einem Hexafeld `{Hᵢ}` wird ein Referenz-Hexaphoton
 `H_ref` gewählt; jedem `Hᵢ` wird eine relative Phase zugeordnet:
 
 ```
@@ -125,15 +125,16 @@ Bildbildung ein. Ein einzelnes, isoliertes `H` hat **keine** definierte Phase.
 > *Größenarten* `(E, f, Pᵢ, φ, p⃗, d⃗)`. Das ist eine eingängige Etikette —
 > **kein** Naturgesetz und **keine** 2×3-Symmetrie. Ein einzelnes Hexaphoton
 > hat 5 reelle Freiheitsgrade (3 unabhängige Größen A1–A3 + 2 abgeleitete);
-> `φ` kommt erst im Ensemble hinzu. Die „6" ist ein Name, nichts weiter.
+> `φ` kommt erst im Hexafeld hinzu. Die „6" ist ein Name, nichts weiter.
 
 ---
 
-## 5. Das Ensemble {Hᵢ}
+## 5. Das Hexafeld {Hᵢ}
 
-Eine Quelle bzw. ein Bild ist ein Ensemble von `N` Hexaphotonen.
+Ein **Hexafeld** ist ein Ensemble von `N` Hexaphotonen — eine Quelle oder
+ein Bild.
 
-Die vollständige Beschreibung eines Ensembles umfasst:
+Die vollständige Beschreibung eines Hexafelds umfasst:
 
 | Bestandteil | Anzahl | Beschreibung |
 |-------------|--------|--------------|
@@ -142,7 +143,7 @@ Die vollständige Beschreibung eines Ensembles umfasst:
 
 Eigenschaften wie **Form, Projektion, Interferenzmuster, partielle
 Polarisation** und die **räumliche Position der Quelle** sind ausschließlich
-Ensemble-Eigenschaften. Sie existieren nicht auf der Ebene des einzelnen `H`.
+Hexafeld-Eigenschaften. Sie existieren nicht auf der Ebene des einzelnen `H`.
 
 ---
 
@@ -160,7 +161,7 @@ Ensemble-Eigenschaften. Sie existieren nicht auf der Ebene des einzelnen `H`.
          E   ── via  C1:  E = h·f
          p⃗   ── via  C2:  p⃗ = (h·f/c)·d⃗
 
-   ENSEMBLE  {Hᵢ}
+   HEXAFELD  {Hᵢ}
    │
    └── KLASSE C — Relation (existiert nur hier)
          Δφᵢ ── relative Phase jedes Hᵢ gegen H_ref
@@ -173,14 +174,14 @@ Ensemble-Eigenschaften. Sie existieren nicht auf der Ebene des einzelnen `H`.
 
 - **K2 — Polarisation rein vs. partiell (entschieden, hier festgehalten).**
   Ein einzelnes `H` ist **rein** polarisiert (Jones-Vektor). *Partielle*
-  Polarisation entsteht durch Mittelung über ein Ensemble inkohärenter
+  Polarisation entsteht durch Mittelung über ein Hexafeld inkohärenter
   Hexaphotonen und ist daher eine `{Hᵢ}`-Eigenschaft (analog zur Phase).
-  Stokes-Parameter werden erst auf Ensemble-Ebene eingeführt.
+  Stokes-Parameter werden erst auf Hexafeld-Ebene eingeführt.
 
 - **K3 — `h` statt `h_eff` (entschieden, hier festgehalten).**
   Da ein Hexaphoton = eine Mode und das System klassisch bleibt, ist `h` das
   echte Plancksche Wirkungsquantum. Die Größen „`h_eff`" und „`N_eff`" aus
-  v3.0 werden **gestrichen**. (Die Energie eines *Ensembles* ergibt sich durch
+  v3.0 werden **gestrichen**. (Die Energie eines *Hexafelds* ergibt sich durch
   Summation der Einzel-Energien, nicht durch ein `N_eff`.)
 
 - **K4 — neu, für Baustein 2.**
@@ -191,5 +192,5 @@ Ensemble-Eigenschaften. Sie existieren nicht auf der Ebene des einzelnen `H`.
 
 ---
 
-*Ende Baustein 1, Revision 2. Nächster Schritt: Baustein 2 — Definition des
-Mappings F von H (bzw. {Hᵢ}) auf Modalamplituden.*
+*Ende Baustein 1, Revision 3. Nächster Schritt: Baustein 2 — Definition des
+Mappings F von H (bzw. dem Hexafeld {Hᵢ}) auf Modalamplituden.*
