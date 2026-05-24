@@ -1,10 +1,10 @@
 # Hexaphotone — Baustein 1: Definition des Hexaphoton-Vektors
 
-> **Status:** Arbeitsdokument (work in progress)
+> **Status:** Arbeitsdokument (work in progress) — Revision 2
 > **Zweck:** Erster Baustein des Hexaphotone-Notations-Systems.
-> Dieses Dokument definiert *ein einzelnes Hexaphoton*. Es macht **keine**
-> neuen physikalischen Behauptungen — es ist eine Umformulierung etablierter
-> klassischer Wellenoptik in kompakter Notation.
+> Dieses Dokument definiert *ein einzelnes Hexaphoton* sowie das *Ensemble*.
+> Es macht **keine** neuen physikalischen Behauptungen — es ist eine
+> Umformulierung etablierter klassischer Wellenoptik in kompakter Notation.
 
 ---
 
@@ -14,7 +14,7 @@ Das Hexaphotone-System kennt **zwei Ebenen**, die strikt getrennt werden:
 
 | Ebene | Symbol | Beschreibung |
 |-------|--------|--------------|
-| **Lichtelement** | `H` | Ein einzelnes Hexaphoton — eine idealisierte Mode bzw. ein Strahl. Trägt die sechs unten definierten Komponenten. |
+| **Lichtelement** | `H` | Ein einzelnes Hexaphoton — eine idealisierte Mode bzw. ein Strahl. |
 | **Quelle / Bild** | `{Hᵢ}` | Ein Ensemble vieler Hexaphotonen. Alle Aussagen über Form, Bild, Projektion, Interferenz und räumliche Position gehören **ausschließlich** auf diese Ebene. |
 
 **Wichtige Konsequenz:** Ein einzelnes `H` ist *positionslos*. Es trägt eine
@@ -24,59 +24,54 @@ divergierender Richtungen — das Funktionsprinzip von Auge und Kamera).
 
 ---
 
-## 2. Der Hexaphoton-Vektor
+## 2. Drei Klassen von Größen
 
-Ein Hexaphoton wird durch einen sechskomponentigen Vektor beschrieben:
+Die sechs traditionell genannten Größen `(E, f, Pᵢ, φ, p⃗, d⃗)` sind **nicht
+gleichartig**. Sie zerfallen in drei Klassen — und genau diese Trennung ist der
+Kern von Baustein 1. Sie behebt die zentrale Mehrdeutigkeit der Vorversion (v3.0).
 
-```
-H = ( E , f , Pᵢ , φ , p⃗ , d⃗ )
-```
-
-Die sechs Komponenten zerfallen in **zwei Klassen**. Diese Trennung ist der
-Kern von Baustein 1 und behebt die Mehrdeutigkeit der Vorversion (v3.0).
-
----
-
-## 3. Klasse A — Unabhängige Komponenten (4)
-
-Dies sind die **echten Freiheitsgrade**. Sie können — innerhalb ihrer
-jeweiligen Wertebereiche — frei und unabhängig voneinander gewählt werden.
-
-| # | Komponente | Symbol | Wertebereich | Beschreibung |
-|---|-----------|--------|--------------|--------------|
-| A1 | Frequenz | `f` | `f > 0` | Zentralfrequenz bzw. spektraler Schwerpunkt der Mode. |
-| A2 | Polarisation | `Pᵢ` | Jones-Vektor (kohärent) bzw. Stokes-Parameter (partiell) | Polarisationszustand. Bei voller Kohärenz ein normierter 2-komponentiger komplexer Jones-Vektor. |
-| A3 | Phase | `φ` | `φ ∈ [0, 2π)` | **Referenzphase** der Mode. → siehe Klärungspunkt K1 unten. |
-| A4 | Richtung | `d⃗` | Einheitsvektor, `‖d⃗‖ = 1` | Ausbreitungsrichtung. Punkt auf der Einheitssphäre (2 Winkel-Freiheitsgrade). Trägt **Richtung, nicht Position**. |
-
-**Anzahl reeller Freiheitsgrade in Klasse A:**
-`f` (1) + `Pᵢ` (2 für reinen Zustand) + `φ` (1) + `d⃗` (2) = **6 reelle Zahlen.**
+| Klasse | Größen | Charakter |
+|--------|--------|-----------|
+| **A — Eigenschaften** | `f`, `Pᵢ`, `d⃗` | Echte, unabhängige Freiheitsgrade *eines einzelnen* Hexaphotons. |
+| **B — Abgeleitet** | `E`, `p⃗` | Folgen über feste Constraints aus Klasse A. Deklarierte Redundanz. |
+| **C — Relation** | `φ` | **Keine** Eigenschaft eines einzelnen `H`. Nur als *Beziehung zwischen* Hexaphotonen im Ensemble definiert. |
 
 ---
 
-## 4. Klasse B — Abgeleitete Komponenten (2)
+## 3. Das einzelne Hexaphoton
 
-Diese Komponenten sind **nicht unabhängig**. Sie folgen über feste
-physikalische Constraints aus Klasse A. Sie werden trotzdem explizit im
-Vektor geführt — aus rein **notationaler Bequemlichkeit** (man muss nicht
-ständig umrechnen) und weil sie die *messbaren* Größen sind, mit denen
-Experimentalphysik direkt arbeitet.
+### 3.1 Klasse A — Eigenschaften (3 unabhängige Freiheitsgrade)
 
-| # | Komponente | Symbol | Abgeleitet aus | Constraint |
-|---|-----------|--------|----------------|------------|
-| B1 | Energie­skala | `E` | `f` | `E = h · f` (siehe C1) |
-| B2 | Impuls | `p⃗` | `f` und `d⃗` | `p⃗ = (h·f / c) · d⃗` (siehe C2) |
+Dies sind die echten Freiheitsgrade eines einzelnen Lichtelements. Sie können —
+innerhalb ihrer Wertebereiche — frei und unabhängig gewählt werden.
 
-> **Hinweis:** Die Redundanz ist *deklariert*. Das ist gängige Praxis in der
-> Physik (z. B. die 4 Stokes-Parameter mit ihrer Ungleichung, homogene
-> Koordinaten, Quaternionen). Verwirrung entsteht nicht durch Redundanz,
-> sondern durch *undeklarierte* Redundanz — genau das war der Fehler in v3.0.
+| # | Größe | Symbol | Wertebereich | Beschreibung |
+|---|-------|--------|--------------|--------------|
+| A1 | Frequenz | `f` | `f > 0` | Frequenz der Mode. Bestimmt zugleich die Wellenlänge `λ = c/f`. |
+| A2 | Polarisation | `Pᵢ` | normierter Jones-Vektor | Polarisationszustand. Ein **rein** polarisierter Zustand: 2-komponentiger komplexer Vektor, normiert (2 reelle Freiheitsgrade). → siehe K2. |
+| A3 | Richtung | `d⃗` | Einheitsvektor, `‖d⃗‖ = 1` | Ausbreitungsrichtung. Punkt auf der Einheitssphäre (2 Winkel). Trägt **Richtung, nicht Position**. |
 
----
+**Reelle Freiheitsgrade eines einzelnen Hexaphotons:**
+`f` (1) + `Pᵢ` (2) + `d⃗` (2) = **5 reelle Zahlen.**
 
-## 5. Constraint-Gleichungen
+### 3.2 Klasse B — Abgeleitete Größen (2)
 
-Die beiden Gleichungen, die Klasse B an Klasse A binden:
+Diese Größen sind **nicht unabhängig**. Sie folgen über feste physikalische
+Constraints aus Klasse A. Sie werden trotzdem explizit geführt — aus
+**notationaler Bequemlichkeit** und weil sie die *messbaren* Größen sind,
+mit denen Experimentalphysik direkt arbeitet.
+
+| # | Größe | Symbol | Abgeleitet aus | Constraint |
+|---|-------|--------|----------------|------------|
+| B1 | Energie | `E` | `f` | `E = h · f` (C1) |
+| B2 | Impuls | `p⃗` | `f` und `d⃗` | `p⃗ = (h·f / c) · d⃗` (C2) |
+
+> Die Redundanz ist *deklariert*. Das ist gängige Praxis in der Physik
+> (Stokes-Parameter mit Ungleichung, homogene Koordinaten, Quaternionen).
+> Verwirrung entsteht nicht durch Redundanz, sondern durch *undeklarierte*
+> Redundanz — genau das war der Fehler in v3.0.
+
+### 3.3 Constraint-Gleichungen
 
 **C1 — Energie-Frequenz-Constraint:**
 
@@ -84,8 +79,7 @@ Die beiden Gleichungen, die Klasse B an Klasse A binden:
 E = h · f
 ```
 
-`h` = Plancksches Wirkungsquantum. (Gilt pro Hexaphoton, d. h. pro Mode.
-Auf Ensemble-Ebene summiert sich die Energie über alle `Hᵢ`.)
+`h` = Plancksches Wirkungsquantum (das echte `h`, kein „h_eff" — siehe K3).
 
 **C2 — Impuls-Constraint:**
 
@@ -101,48 +95,101 @@ Auf Ensemble-Ebene summiert sich die Energie über alle `Hᵢ`.)
 
 ---
 
+## 4. Die Phase φ — eine Relation, keine Eigenschaft (Klasse C)
+
+Dies ist der wichtigste Klärungspunkt von Baustein 1.
+
+**Phase ist nicht Wellenlänge.** Die Wellenlänge (`λ`, über `f`) beschreibt,
+wie eng die Wellenberge gepackt sind. Die Phase `φ` beschreibt, *wo im
+Auf-und-Ab-Zyklus* eine Welle sich an einem Ort/Zeitpunkt befindet (Berg, Tal,
+Nulldurchgang) — gemessen als Winkel in `[0, 2π)`.
+
+**Eine absolute Phase eines einzelnen Hexaphotons ist physikalisch
+bedeutungslos.** Es gibt keinen Bezugspunkt, gegen den man sie messen könnte.
+Bedeutung bekommt ausschließlich die **relative Phase zwischen zwei
+Hexaphotonen** — denn nur Phasendifferenzen sind beobachtbar (sie steuern
+Interferenz: Berg+Berg = Verstärkung, Berg+Tal = Auslöschung).
+
+**Definition (Klasse C):** Die Phase ist eine **Relationsgröße auf
+Ensemble-Ebene**. In einem Ensemble `{Hᵢ}` wird ein Referenz-Hexaphoton
+`H_ref` gewählt; jedem `Hᵢ` wird eine relative Phase zugeordnet:
+
+```
+Δφᵢ = φᵢ − φ_ref
+```
+
+Nur diese Differenzen sind physikalisch und gehen in Interferenz und
+Bildbildung ein. Ein einzelnes, isoliertes `H` hat **keine** definierte Phase.
+
+> **Hinweis zur Bezeichnung „Hexaphoton":** Der Name bündelt die sechs
+> *Größenarten* `(E, f, Pᵢ, φ, p⃗, d⃗)`. Das ist eine eingängige Etikette —
+> **kein** Naturgesetz und **keine** 2×3-Symmetrie. Ein einzelnes Hexaphoton
+> hat 5 reelle Freiheitsgrade (3 unabhängige Größen A1–A3 + 2 abgeleitete);
+> `φ` kommt erst im Ensemble hinzu. Die „6" ist ein Name, nichts weiter.
+
+---
+
+## 5. Das Ensemble {Hᵢ}
+
+Eine Quelle bzw. ein Bild ist ein Ensemble von `N` Hexaphotonen.
+
+Die vollständige Beschreibung eines Ensembles umfasst:
+
+| Bestandteil | Anzahl | Beschreibung |
+|-------------|--------|--------------|
+| Eigenschaften pro Hexaphoton | `N × 5` | für jedes `Hᵢ`: `f`, `Pᵢ`, `d⃗` (+ abgeleitet `E`, `p⃗`) |
+| Relative Phasen | `N − 1` | `Δφᵢ` jedes `Hᵢ` gegen das Referenz-Hexaphoton `H_ref` |
+
+Eigenschaften wie **Form, Projektion, Interferenzmuster, partielle
+Polarisation** und die **räumliche Position der Quelle** sind ausschließlich
+Ensemble-Eigenschaften. Sie existieren nicht auf der Ebene des einzelnen `H`.
+
+---
+
 ## 6. Zusammenfassung als Diagramm
 
 ```
-          HEXAPHOTON  H = (E, f, Pᵢ, φ, p⃗, d⃗)
-          │
-          ├── KLASSE A — unabhängig (echte Freiheitsgrade)
-          │     f   ── Frequenz
-          │     Pᵢ  ── Polarisation
-          │     φ   ── Phase
-          │     d⃗   ── Richtung
-          │
-          └── KLASSE B — abgeleitet (deklarierte Redundanz)
-                E   ── via  C1:  E = h·f
-                p⃗   ── via  C2:  p⃗ = (h·f/c)·d⃗
+   EINZELNES HEXAPHOTON  H
+   │
+   ├── KLASSE A — Eigenschaften (3 unabhängige Freiheitsgrade)
+   │     f   ── Frequenz        (→ Wellenlänge λ = c/f)
+   │     Pᵢ  ── Polarisation    (reiner Jones-Vektor)
+   │     d⃗   ── Richtung        (Einheitsvektor; Richtung, NICHT Position)
+   │
+   └── KLASSE B — abgeleitet (deklarierte Redundanz)
+         E   ── via  C1:  E = h·f
+         p⃗   ── via  C2:  p⃗ = (h·f/c)·d⃗
+
+   ENSEMBLE  {Hᵢ}
+   │
+   └── KLASSE C — Relation (existiert nur hier)
+         Δφᵢ ── relative Phase jedes Hᵢ gegen H_ref
+                → trägt Interferenz, Form, Bild
 ```
 
 ---
 
-## 7. Offene Klärungspunkte (für die nächsten Bausteine)
+## 7. Verbleibende offene Punkte (für die nächsten Bausteine)
 
-Diese Punkte sind **noch nicht entschieden** und müssen vor Baustein 2
-(dem Mapping `F`) geklärt werden:
+- **K2 — Polarisation rein vs. partiell (entschieden, hier festgehalten).**
+  Ein einzelnes `H` ist **rein** polarisiert (Jones-Vektor). *Partielle*
+  Polarisation entsteht durch Mittelung über ein Ensemble inkohärenter
+  Hexaphotonen und ist daher eine `{Hᵢ}`-Eigenschaft (analog zur Phase).
+  Stokes-Parameter werden erst auf Ensemble-Ebene eingeführt.
 
-- **K1 — Natur der Phase `φ`.**
-  Ist `φ` eine *globale* Phase (für ein einzelnes `H` per Definition nicht in
-  der Intensität beobachtbar) oder eine *relative* Phase (Bezug zu anderen
-  Hexaphotonen im Ensemble)? Für ein einzelnes Lichtelement ist nur die
-  relative Phase physikalisch sinnvoll. → Dies betrifft direkt die spätere
-  Frage, ob „Prediction D" überhaupt haltbar ist.
+- **K3 — `h` statt `h_eff` (entschieden, hier festgehalten).**
+  Da ein Hexaphoton = eine Mode und das System klassisch bleibt, ist `h` das
+  echte Plancksche Wirkungsquantum. Die Größen „`h_eff`" und „`N_eff`" aus
+  v3.0 werden **gestrichen**. (Die Energie eines *Ensembles* ergibt sich durch
+  Summation der Einzel-Energien, nicht durch ein `N_eff`.)
 
-- **K2 — Polarisation: rein oder partiell.**
-  Klasse A nennt sowohl Jones (rein) als auch Stokes (partiell). Partielle
-  Polarisation ist streng genommen bereits eine Ensemble-Eigenschaft. Ein
-  einzelnes `H` sollte konsistent **rein polarisiert** (Jones) sein; partielle
-  Polarisation gehört auf die `{Hᵢ}`-Ebene.
-
-- **K3 — Effektives `h` vs. echtes `h`.**
-  v3.0 benutzte ein „`h_eff`". Wenn das System rein klassisch bleibt und ein
-  Hexaphoton = eine Mode ist, sollte `h` das echte Plancksche Wirkungsquantum
-  sein. „`h_eff`" und „`N_eff`" werden gestrichen, sofern keine Begründung folgt.
+- **K4 — neu, für Baustein 2.**
+  Das Mapping `F` (Hexaphoton → Modalamplitude) muss definieren, wie aus den
+  Eigenschaften A1–A3 und der relativen Phase eine komplexe Modalamplitude
+  `aₖ` wird. Offen: in welcher Modenbasis, und wie die relative Phase
+  konkret in `aₖ` eingeht.
 
 ---
 
-*Ende Baustein 1. Nächster Schritt: K1–K3 klären, dann Baustein 2 — die
-Definition des Mappings F von H auf Modalamplituden.*
+*Ende Baustein 1, Revision 2. Nächster Schritt: Baustein 2 — Definition des
+Mappings F von H (bzw. {Hᵢ}) auf Modalamplituden.*
