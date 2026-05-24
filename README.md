@@ -1,110 +1,167 @@
-# Photonen als Informationsquelle des Cosmos  
-### Ein theoretisches Modell über Photonen als dynamische Informationsträger  
+# Hexaphotone — Ein Notations-System für Licht als Informationsträger
+
+### Eine kompakte, klassische Beschreibung von Licht über sechs Größen
 **Autor:** Manuel Julin
-**Lizenz:** CC-BY-SA 4.0  
+**Lizenz:** CC-BY-SA 4.0
+**Status:** Arbeitsdokument / work in progress
 
 ---
 
 ## 📘 Überblick
-Dieses Repository enthält eine theoretische Arbeit über ein alternatives Verständnis von Licht und Photonen.  
-Die zentrale Idee lautet:
 
-> Ein Photon ist kein klassisches Teilchen, sondern ein Informationspaket, dessen Zustand durch jede Interaktion transformiert wird.
+Dieses Repository entwickelt **Hexaphotone** — ein *Notations-System*, das
+Licht über eine kompakte, modulare Beschreibung erfasst.
 
-Die Theorie führt den Begriff des **photonischen Informationsvektors (PIV)** ein, der aus sechs fundamentalen Parametern besteht:
+Wichtig zur Einordnung: Hexaphotone ist in seiner aktuellen Form **keine neue
+physikalische Theorie**. Es ist eine **Umformulierung etablierter klassischer
+Wellenoptik** (Maxwell, Fourier-Optik, Mie-/T-Matrix-Streutheorie) in einer
+eigenen, intuitiven Notation. Der Erfolgsmaßstab ist daher nicht „ist es
+wahr?" — die zugrunde liegende Physik ist bekannt und korrekt — sondern
+„ist es konsistent, eindeutig und nützlich?".
 
-- Energie  
-- Frequenz  
-- Polarisation  
-- Phase  
-- Impuls  
-- Richtung  
-
-Diese Parameter bilden gemeinsam den Informationszustand eines Photons.
+Ob daraus später eine echte, über die Standardoptik hinausgehende
+*Vorhersage* entstehen kann, ist eine offene Frage für eine spätere Phase.
+Bis dahin gilt: ehrliche Positionierung als Notations-System.
 
 ---
 
-## 🔬 Ziel der Theorie
-Das Modell soll ein neues Verständnis des Verhältnisses zwischen Photonen und Materie ermöglichen.  
-Es beschreibt die physikalische Welt als **Informationsnetzwerk**, in dem:
+## 🔭 Kernidee: zwei Ebenen
 
-- Materie Informationen speichert  
-- Photonen Informationen transportieren  
-- Interaktionen Informationen transformieren  
+Das System trennt strikt zwischen zwei Ebenen — die Vermischung beider war
+der zentrale Fehler früherer Entwürfe.
 
-Damit entsteht ein konsistentes, intuitives und erweiterbares Modell, das mit moderner Physik kompatibel ist, aber eine eigene Perspektive bietet.
+| Ebene | Symbol | Bedeutung |
+|-------|--------|-----------|
+| **Hexaphoton** | `H` | Ein einzelnes Lichtelement — eine idealisierte Mode bzw. ein Strahl. |
+| **Hexafeld** | `{Hᵢ}` | Ein Ensemble vieler Hexaphotonen — eine Quelle oder ein Bild. |
+
+Ein einzelnes Hexaphoton ist *positionslos*: Es trägt eine **Richtung**, aber
+keinen Herkunftsort. Form, Bild, Projektion, Interferenz und die räumliche
+Position einer Quelle sind **ausschließlich Hexafeld-Eigenschaften**.
+
+---
+
+## 🧩 Der Hexaphoton-Vektor
+
+Ein Hexaphoton wird traditionell über sechs Größen benannt:
+
+```
+H = ( E , f , Pᵢ , φ , p⃗ , d⃗ )
+```
+
+Diese sechs Größen sind **nicht gleichartig**. Sie zerfallen in drei Klassen:
+
+| Klasse | Größen | Charakter |
+|--------|--------|-----------|
+| **A — Eigenschaften** | `f` (Frequenz), `Pᵢ` (Polarisation), `d⃗` (Richtung) | Echte, unabhängige Freiheitsgrade eines einzelnen Hexaphotons. |
+| **B — Abgeleitet** | `E` (Energie), `p⃗` (Impuls) | Folgen über feste Constraints aus Klasse A. Deklarierte Redundanz. |
+| **C — Relation** | `φ` (Phase) | Keine Eigenschaft eines einzelnen `H`. Nur als Beziehung *zwischen* Hexaphotonen im Hexafeld definiert. |
+
+Ein einzelnes Hexaphoton hat damit **3 unabhängige Freiheitsgrade**
+(`f`, `Pᵢ`, `d⃗`). Die Bezeichnung „Hexa" (sechs) ist eine eingängige
+Etikette für die sechs Größenarten — **kein Naturgesetz**.
+
+### Constraint-Gleichungen
+
+```
+C1   E  = h · f                    (Energie aus Frequenz)
+C2   p⃗  = (h · f / c) · d⃗          (Impuls aus Frequenz und Richtung)
+```
+
+`h` = Plancksches Wirkungsquantum, `c` = Lichtgeschwindigkeit.
+
+### Die Phase φ
+
+Eine **absolute** Phase eines einzelnen Hexaphotons ist physikalisch
+bedeutungslos. Nur die **relative Phase zwischen** Hexaphotonen ist
+beobachtbar (sie steuert Interferenz). Die Phase ist daher eine
+Relationsgröße auf Hexafeld-Ebene:
+
+```
+Δφᵢ = φᵢ − φ_ref
+```
+
+---
+
+## 🔄 Interaktion mit Materie
+
+Eine Interaktion mit Materie wird als linearer Operator `T_M` beschrieben,
+der ein eingehendes in ein ausgehendes Hexaphoton (bzw. Hexafeld) überführt:
+
+```
+H_aus = T_M ( H_ein )
+```
+
+`T_M` codiert Geometrie und Materialeigenschaften des streuenden Objekts.
+Dieser Operator-Formalismus ist die etablierte Transferfunktions- bzw.
+Streumatrix-Theorie, in Hexaphotone-Notation geschrieben.
 
 ---
 
 ## 📄 Inhalte dieses Repositories
-- **theorie.md**  
-  Enthält die vollständige Version der Theorie *„Photonische Informationsvektoren – Ein Modell für Licht als dynamischen Informationsträger“*.
 
-- **LICENSE**  
-  Die Lizenzdatei (CC-BY-SA 4.0), die sicherstellt, dass die Theorie frei bleibt und nicht patentiert oder privatisiert werden kann.
+| Datei | Inhalt | Status |
+|-------|--------|--------|
+| `README.md` | Diese Übersicht. | aktuell |
+| `Baustein_1_Definitionen.md` | Saubere Definition von Hexaphoton, Hexafeld und der drei Größenklassen. | aktuell |
+| `LICENSE` | Lizenztext (CC-BY-SA 4.0). | aktuell |
 
-- **README.md**  
-  Diese Datei. Übersicht, Motivation und Struktur des Projekts.
-
----
-
-## 🧠 Kernkonzept: Der photonische Informationsvektor (PIV)
-Ein Photon wird beschrieben durch:
-
-
-
-\[
-P = (E, f, \Pi, \phi, p, \vec{d})
-\]
-
-
-
-Jede Interaktion führt zu einer Transformation:
-
-
-
-\[
-P_{neu} = T(P_{alt}, M)
-\]
-
-
-
-wobei **M** die Eigenschaften der Materie beschreibt.
-
-Das Photon speichert keine Historie, aber sein Zustand ist das Ergebnis aller bisherigen Transformationen.
+> **Hinweis:** Frühere PDF-Versionen des Dokuments verwenden noch die
+> überholte Bezeichnung „PIV — photonischer Informationsvektor" und
+> vermischen die Hexaphoton- mit der Hexafeld-Ebene. Sie werden Schritt
+> für Schritt durch die neuen Bausteine ersetzt.
 
 ---
 
-## 🌐 Bedeutung des Modells
-Dieses Modell bietet:
+## 🗺️ Fahrplan
 
-- eine intuitive Sichtweise auf Quantenphänomene  
-- eine Brücke zwischen Quanteninformation und klassischer Physik  
-- eine Grundlage für zukünftige theoretische Erweiterungen  
-- einen Ansatz, der Licht als Informationsfluss beschreibt  
+Das Projekt wird in **Bausteinen** entwickelt, die aufeinander aufbauen:
+
+- [x] **Baustein 1 — Definitionen.** Hexaphoton, Hexafeld, drei Größenklassen,
+      Constraints. *(abgeschlossen)*
+- [ ] **Baustein 2 — Das Mapping F.** Vorschrift, wie aus einem Hexaphoton
+      bzw. Hexafeld eine konkrete komplexe Modalamplitude wird. Macht das
+      System rechenfähig.
+- [ ] **Baustein 3 — Operatoren.** Saubere Definition von `T_M` und der
+      Anbindung an Mie-/T-Matrix-Streutheorie.
+- [ ] **Baustein 4 — Numerische Validierung.** Ein konkretes Streuproblem
+      durchrechnen und gegen eine etablierte Mie-Bibliothek prüfen.
+- [ ] **Offene Frage (spätere Phase):** Lässt sich eine eigenständige,
+      über die klassische Optik hinausgehende Vorhersage formulieren?
+
+---
+
+## ⚠️ Was Hexaphotone (noch) NICHT ist
+
+Zur Ehrlichkeit gehört, klar zu sagen, was das System aktuell *nicht* leistet:
+
+- Es ist **kein Quantenmodell.** Es quantisiert das Feld nicht und macht
+  keine Aussagen über Einzelphotonen-Quanteneffekte.
+- Es macht **keine Vorhersage**, die nicht auch direkt aus Maxwell/Mie folgt.
+- Es ist **nicht numerisch validiert** — das ist Baustein 4.
 
 ---
 
 ## 📜 Lizenz
-Dieses Projekt steht unter der **Creative Commons CC-BY-SA 4.0** Lizenz.  
-Das bedeutet:
 
-- Jeder darf die Theorie nutzen  
-- Der Autor muss genannt werden  
-- Weiterentwicklungen müssen ebenfalls frei bleiben  
-- Niemand darf die Theorie patentieren oder privatisieren  
+Dieses Projekt steht unter der **Creative Commons CC-BY-SA 4.0** Lizenz:
 
-Vollständiger Lizenztext:  
-https://creativecommons.org/licenses/by-sa/4.0/
+- Jeder darf die Arbeit nutzen und weiterentwickeln.
+- Der Autor muss genannt werden.
+- Weiterentwicklungen müssen unter derselben Lizenz frei bleiben.
+
+Vollständiger Lizenztext: https://creativecommons.org/licenses/by-sa/4.0/
 
 ---
 
 ## 📚 Zitierempfehlung
-Manuel Julin (2026). *Photonische Informationsvektoren – Ein Modell für Licht als dynamischen Informationsträger.* Version 1.0. CC-BY-SA 4.0.
+
+Manuel Julin (2026). *Hexaphotone — Ein Notations-System für Licht als
+Informationsträger.* Arbeitsversion. CC-BY-SA 4.0.
 
 ---
 
 ## 🤝 Beiträge
-Diskussionen, Ideen und Erweiterungen sind willkommen.  
+
+Diskussionen, Ideen und Erweiterungen sind willkommen.
 Pull Requests und Issues können jederzeit erstellt werden.
-n.
