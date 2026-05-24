@@ -1,0 +1,148 @@
+# Hexaphotone — Baustein 1: Definition des Hexaphoton-Vektors
+
+> **Status:** Arbeitsdokument (work in progress)
+> **Zweck:** Erster Baustein des Hexaphotone-Notations-Systems.
+> Dieses Dokument definiert *ein einzelnes Hexaphoton*. Es macht **keine**
+> neuen physikalischen Behauptungen — es ist eine Umformulierung etablierter
+> klassischer Wellenoptik in kompakter Notation.
+
+---
+
+## 1. Geltungsbereich und Hierarchie
+
+Das Hexaphotone-System kennt **zwei Ebenen**, die strikt getrennt werden:
+
+| Ebene | Symbol | Beschreibung |
+|-------|--------|--------------|
+| **Lichtelement** | `H` | Ein einzelnes Hexaphoton — eine idealisierte Mode bzw. ein Strahl. Trägt die sechs unten definierten Komponenten. |
+| **Quelle / Bild** | `{Hᵢ}` | Ein Ensemble vieler Hexaphotonen. Alle Aussagen über Form, Bild, Projektion, Interferenz und räumliche Position gehören **ausschließlich** auf diese Ebene. |
+
+**Wichtige Konsequenz:** Ein einzelnes `H` ist *positionslos*. Es trägt eine
+*Richtung* (`d⃗`), aber **keinen Herkunftsort**. Die räumliche Position einer
+Quelle ist allein aus dem Ensemble `{Hᵢ}` rekonstruierbar (durch Rückverfolgung
+divergierender Richtungen — das Funktionsprinzip von Auge und Kamera).
+
+---
+
+## 2. Der Hexaphoton-Vektor
+
+Ein Hexaphoton wird durch einen sechskomponentigen Vektor beschrieben:
+
+```
+H = ( E , f , Pᵢ , φ , p⃗ , d⃗ )
+```
+
+Die sechs Komponenten zerfallen in **zwei Klassen**. Diese Trennung ist der
+Kern von Baustein 1 und behebt die Mehrdeutigkeit der Vorversion (v3.0).
+
+---
+
+## 3. Klasse A — Unabhängige Komponenten (4)
+
+Dies sind die **echten Freiheitsgrade**. Sie können — innerhalb ihrer
+jeweiligen Wertebereiche — frei und unabhängig voneinander gewählt werden.
+
+| # | Komponente | Symbol | Wertebereich | Beschreibung |
+|---|-----------|--------|--------------|--------------|
+| A1 | Frequenz | `f` | `f > 0` | Zentralfrequenz bzw. spektraler Schwerpunkt der Mode. |
+| A2 | Polarisation | `Pᵢ` | Jones-Vektor (kohärent) bzw. Stokes-Parameter (partiell) | Polarisationszustand. Bei voller Kohärenz ein normierter 2-komponentiger komplexer Jones-Vektor. |
+| A3 | Phase | `φ` | `φ ∈ [0, 2π)` | **Referenzphase** der Mode. → siehe Klärungspunkt K1 unten. |
+| A4 | Richtung | `d⃗` | Einheitsvektor, `‖d⃗‖ = 1` | Ausbreitungsrichtung. Punkt auf der Einheitssphäre (2 Winkel-Freiheitsgrade). Trägt **Richtung, nicht Position**. |
+
+**Anzahl reeller Freiheitsgrade in Klasse A:**
+`f` (1) + `Pᵢ` (2 für reinen Zustand) + `φ` (1) + `d⃗` (2) = **6 reelle Zahlen.**
+
+---
+
+## 4. Klasse B — Abgeleitete Komponenten (2)
+
+Diese Komponenten sind **nicht unabhängig**. Sie folgen über feste
+physikalische Constraints aus Klasse A. Sie werden trotzdem explizit im
+Vektor geführt — aus rein **notationaler Bequemlichkeit** (man muss nicht
+ständig umrechnen) und weil sie die *messbaren* Größen sind, mit denen
+Experimentalphysik direkt arbeitet.
+
+| # | Komponente | Symbol | Abgeleitet aus | Constraint |
+|---|-----------|--------|----------------|------------|
+| B1 | Energie­skala | `E` | `f` | `E = h · f` (siehe C1) |
+| B2 | Impuls | `p⃗` | `f` und `d⃗` | `p⃗ = (h·f / c) · d⃗` (siehe C2) |
+
+> **Hinweis:** Die Redundanz ist *deklariert*. Das ist gängige Praxis in der
+> Physik (z. B. die 4 Stokes-Parameter mit ihrer Ungleichung, homogene
+> Koordinaten, Quaternionen). Verwirrung entsteht nicht durch Redundanz,
+> sondern durch *undeklarierte* Redundanz — genau das war der Fehler in v3.0.
+
+---
+
+## 5. Constraint-Gleichungen
+
+Die beiden Gleichungen, die Klasse B an Klasse A binden:
+
+**C1 — Energie-Frequenz-Constraint:**
+
+```
+E = h · f
+```
+
+`h` = Plancksches Wirkungsquantum. (Gilt pro Hexaphoton, d. h. pro Mode.
+Auf Ensemble-Ebene summiert sich die Energie über alle `Hᵢ`.)
+
+**C2 — Impuls-Constraint:**
+
+```
+| p⃗ | = h · f / c = h / λ        und        p⃗ = | p⃗ | · d⃗
+```
+
+`c` = Lichtgeschwindigkeit, `λ` = Wellenlänge. Der Impuls ist durch Frequenz
+*und* Richtung vollständig festgelegt — er ist keine eigene Information.
+
+> **Implementierungsregel:** Jede numerische Umsetzung muss C1 und C2 nach
+> jeder Operation aktiv erzwingen. Ein `H`, das C1/C2 verletzt, ist unphysikalisch.
+
+---
+
+## 6. Zusammenfassung als Diagramm
+
+```
+          HEXAPHOTON  H = (E, f, Pᵢ, φ, p⃗, d⃗)
+          │
+          ├── KLASSE A — unabhängig (echte Freiheitsgrade)
+          │     f   ── Frequenz
+          │     Pᵢ  ── Polarisation
+          │     φ   ── Phase
+          │     d⃗   ── Richtung
+          │
+          └── KLASSE B — abgeleitet (deklarierte Redundanz)
+                E   ── via  C1:  E = h·f
+                p⃗   ── via  C2:  p⃗ = (h·f/c)·d⃗
+```
+
+---
+
+## 7. Offene Klärungspunkte (für die nächsten Bausteine)
+
+Diese Punkte sind **noch nicht entschieden** und müssen vor Baustein 2
+(dem Mapping `F`) geklärt werden:
+
+- **K1 — Natur der Phase `φ`.**
+  Ist `φ` eine *globale* Phase (für ein einzelnes `H` per Definition nicht in
+  der Intensität beobachtbar) oder eine *relative* Phase (Bezug zu anderen
+  Hexaphotonen im Ensemble)? Für ein einzelnes Lichtelement ist nur die
+  relative Phase physikalisch sinnvoll. → Dies betrifft direkt die spätere
+  Frage, ob „Prediction D" überhaupt haltbar ist.
+
+- **K2 — Polarisation: rein oder partiell.**
+  Klasse A nennt sowohl Jones (rein) als auch Stokes (partiell). Partielle
+  Polarisation ist streng genommen bereits eine Ensemble-Eigenschaft. Ein
+  einzelnes `H` sollte konsistent **rein polarisiert** (Jones) sein; partielle
+  Polarisation gehört auf die `{Hᵢ}`-Ebene.
+
+- **K3 — Effektives `h` vs. echtes `h`.**
+  v3.0 benutzte ein „`h_eff`". Wenn das System rein klassisch bleibt und ein
+  Hexaphoton = eine Mode ist, sollte `h` das echte Plancksche Wirkungsquantum
+  sein. „`h_eff`" und „`N_eff`" werden gestrichen, sofern keine Begründung folgt.
+
+---
+
+*Ende Baustein 1. Nächster Schritt: K1–K3 klären, dann Baustein 2 — die
+Definition des Mappings F von H auf Modalamplituden.*
