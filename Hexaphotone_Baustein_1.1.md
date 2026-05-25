@@ -1,0 +1,203 @@
+# Hexaphotone — Baustein 1: Definition des Hexaphoton-Vektors
+
+> **Status:** Arbeitsdokument (work in progress) — Revision 3
+> **Zweck:** Erster Baustein des Hexaphotone-Notations-Systems.
+> Dieses Dokument definiert *ein einzelnes Hexaphoton* sowie das *Hexafeld*.
+> Es macht **keine** neuen physikalischen Behauptungen — es ist eine
+> Umformulierung etablierter klassischer Wellenoptik in kompakter Notation.
+
+---
+
+## 1. Geltungsbereich und Hierarchie
+
+Das Hexaphotone-System kennt **zwei Ebenen**, die strikt getrennt werden:
+
+| Ebene | Symbol | Beschreibung |
+|-------|--------|--------------|
+| **Lichtelement** | `H` | Ein einzelnes Hexaphoton — eine idealisierte Mode bzw. ein Strahl. |
+| **Hexafeld** | `{Hᵢ}` | Ein Ensemble vieler Hexaphotonen (eine Quelle, ein Bild). Alle Aussagen über Form, Bild, Projektion, Interferenz und räumliche Position gehören **ausschließlich** auf diese Ebene. |
+
+**Wichtige Konsequenz:** Ein einzelnes `H` ist *positionslos*. Es trägt eine
+*Richtung* (`d⃗`), aber **keinen Herkunftsort**. Die räumliche Position einer
+Quelle ist allein aus dem Hexafeld `{Hᵢ}` rekonstruierbar (durch Rückverfolgung
+divergierender Richtungen — das Funktionsprinzip von Auge und Kamera).
+
+---
+
+## 2. Drei Klassen von Größen
+
+Die sechs traditionell genannten Größen `(E, f, Pᵢ, φ, p⃗, d⃗)` sind **nicht
+gleichartig**. Sie zerfallen in drei Klassen — und genau diese Trennung ist der
+Kern von Baustein 1. Sie behebt die zentrale Mehrdeutigkeit der Vorversion (v3.0).
+
+| Klasse | Größen | Charakter |
+|--------|--------|-----------|
+| **A — Eigenschaften** | `f`, `Pᵢ`, `d⃗` | Echte, unabhängige Freiheitsgrade *eines einzelnen* Hexaphotons. |
+| **B — Abgeleitet** | `E`, `p⃗` | Folgen über feste Constraints aus Klasse A. Deklarierte Redundanz. |
+| **C — Relation** | `φ` | **Keine** Eigenschaft eines einzelnen `H`. Nur als *Beziehung zwischen* Hexaphotonen im Hexafeld definiert. |
+
+---
+
+## 3. Das einzelne Hexaphoton
+
+### 3.1 Klasse A — Eigenschaften (3 unabhängige Freiheitsgrade)
+
+Dies sind die echten Freiheitsgrade eines einzelnen Lichtelements. Sie können —
+innerhalb ihrer Wertebereiche — frei und unabhängig gewählt werden.
+
+| # | Größe | Symbol | Wertebereich | Beschreibung |
+|---|-------|--------|--------------|--------------|
+| A1 | Frequenz | `f` | `f > 0` | Frequenz der Mode. Bestimmt zugleich die Wellenlänge `λ = c/f`. |
+| A2 | Polarisation | `Pᵢ` | normierter Jones-Vektor | Polarisationszustand. Ein **rein** polarisierter Zustand: 2-komponentiger komplexer Vektor, normiert (2 reelle Freiheitsgrade). → siehe K2. |
+| A3 | Richtung | `d⃗` | Einheitsvektor, `‖d⃗‖ = 1` | Ausbreitungsrichtung. Punkt auf der Einheitssphäre (2 Winkel). Trägt **Richtung, nicht Position**. |
+
+**Reelle Freiheitsgrade eines einzelnen Hexaphotons:**
+`f` (1) + `Pᵢ` (2) + `d⃗` (2) = **5 reelle Zahlen.**
+
+### 3.2 Klasse B — Abgeleitete Größen (2)
+
+Diese Größen sind **nicht unabhängig**. Sie folgen über feste physikalische
+Constraints aus Klasse A. Sie werden trotzdem explizit geführt — aus
+**notationaler Bequemlichkeit** und weil sie die *messbaren* Größen sind,
+mit denen Experimentalphysik direkt arbeitet.
+
+| # | Größe | Symbol | Abgeleitet aus | Constraint |
+|---|-------|--------|----------------|------------|
+| B1 | Energie | `E` | `f` | `E = h · f` (C1) |
+| B2 | Impuls | `p⃗` | `f` und `d⃗` | `p⃗ = (h·f / c) · d⃗` (C2) |
+
+> Die Redundanz ist *deklariert*. Das ist gängige Praxis in der Physik
+> (Stokes-Parameter mit Ungleichung, homogene Koordinaten, Quaternionen).
+> Verwirrung entsteht nicht durch Redundanz, sondern durch *undeklarierte*
+> Redundanz — genau das war der Fehler in v3.0.
+
+### 3.3 Constraint-Gleichungen
+
+**C1 — Energie-Frequenz-Constraint:**
+
+```
+E = h · f
+```
+
+`h` = Plancksches Wirkungsquantum (das echte `h`, kein „h_eff" — siehe K3).
+
+**C2 — Impuls-Constraint:**
+
+```
+| p⃗ | = h · f / c = h / λ        und        p⃗ = | p⃗ | · d⃗
+```
+
+`c` = Lichtgeschwindigkeit, `λ` = Wellenlänge. Der Impuls ist durch Frequenz
+*und* Richtung vollständig festgelegt — er ist keine eigene Information.
+
+> **Implementierungsregel:** Jede numerische Umsetzung muss C1 und C2 nach
+> jeder Operation aktiv erzwingen. Ein `H`, das C1/C2 verletzt, ist unphysikalisch.
+
+---
+
+## 4. Die Phase φ — eine Relation, keine Eigenschaft (Klasse C)
+
+Dies ist der wichtigste Klärungspunkt von Baustein 1.
+
+**Phase ist nicht Wellenlänge.** Die Wellenlänge (`λ`, über `f`) beschreibt,
+wie eng die Wellenberge gepackt sind. Die Phase `φ` beschreibt, *wo im
+Auf-und-Ab-Zyklus* eine Welle sich an einem Ort/Zeitpunkt befindet (Berg, Tal,
+Nulldurchgang) — gemessen als Winkel in `[0, 2π)`.
+
+**Eine absolute Phase eines einzelnen Hexaphotons ist physikalisch
+bedeutungslos.** Es gibt keinen Bezugspunkt, gegen den man sie messen könnte.
+Bedeutung bekommt ausschließlich die **relative Phase zwischen zwei
+Hexaphotonen** — denn nur Phasendifferenzen sind beobachtbar (sie steuern
+Interferenz: Berg+Berg = Verstärkung, Berg+Tal = Auslöschung).
+
+**Definition (Klasse C):** Die Phase ist eine **Relationsgröße auf
+Hexafeld-Ebene**. In einem Hexafeld `{Hᵢ}` wird ein Referenz-Hexaphoton
+`H_ref` gewählt; jedem `Hᵢ` wird eine relative Phase zugeordnet:
+
+```
+Δφᵢ = φᵢ − φ_ref
+```
+
+Nur diese Differenzen sind physikalisch und gehen in Interferenz und
+Bildbildung ein. Ein einzelnes, isoliertes `H` hat **keine** definierte Phase.
+
+> **Hinweis zur Bezeichnung „Hexaphoton":** Der Name bündelt die sechs
+> *Größenarten* `(E, f, Pᵢ, φ, p⃗, d⃗)`. Das ist eine eingängige Etikette —
+> **kein** Naturgesetz und **keine** 2×3-Symmetrie. Ein einzelnes Hexaphoton
+> hat 5 reelle Freiheitsgrade (3 unabhängige Größen A1–A3 + 2 abgeleitete);
+> `φ` kommt erst im Hexafeld hinzu. Die „6" ist ein Name, nichts weiter.
+
+---
+
+## 5. Das Hexafeld {Hᵢ}
+
+Ein **Hexafeld** ist ein Ensemble von `N` Hexaphotonen — eine Quelle oder
+ein Bild.
+
+Die vollständige Beschreibung eines Hexafelds umfasst:
+
+| Bestandteil | Anzahl | Beschreibung |
+|-------------|--------|--------------|
+| Eigenschaften pro Hexaphoton | `N × 5` | für jedes `Hᵢ`: `f`, `Pᵢ`, `d⃗` (+ abgeleitet `E`, `p⃗`) |
+| Relative Phasen | `N − 1` | `Δφᵢ` jedes `Hᵢ` gegen das Referenz-Hexaphoton `H_ref` |
+
+Eigenschaften wie **Form, Projektion, Interferenzmuster, partielle
+Polarisation** und die **räumliche Position der Quelle** sind ausschließlich
+Hexafeld-Eigenschaften. Sie existieren nicht auf der Ebene des einzelnen `H`.
+
+> **Klarstellung — die sechs Kanäle bleiben sechs.** Ein Hexafeld aus `N`
+> Hexaphotonen hat **nicht** `6·N` „Dimensionen". Es bleiben dieselben sechs
+> Größenarten `(E, f, Pᵢ, φ, p⃗, d⃗)` — sie sind feste *Kanäle*. Mehr
+> Hexaphotonen bedeuten *mehr Werte, verteilt auf dieselben sechs Kanäle*,
+> nicht mehr Kanäle. Drei Hexaphotonen ergeben also nicht „18 Dimensionen",
+> sondern drei Wertesätze in den immer gleichen sechs Kanälen.
+
+---
+
+## 6. Zusammenfassung als Diagramm
+
+```
+   EINZELNES HEXAPHOTON  H
+   │
+   ├── KLASSE A — Eigenschaften (3 unabhängige Freiheitsgrade)
+   │     f   ── Frequenz        (→ Wellenlänge λ = c/f)
+   │     Pᵢ  ── Polarisation    (reiner Jones-Vektor)
+   │     d⃗   ── Richtung        (Einheitsvektor; Richtung, NICHT Position)
+   │
+   └── KLASSE B — abgeleitet (deklarierte Redundanz)
+         E   ── via  C1:  E = h·f
+         p⃗   ── via  C2:  p⃗ = (h·f/c)·d⃗
+
+   HEXAFELD  {Hᵢ}
+   │
+   └── KLASSE C — Relation (existiert nur hier)
+         Δφᵢ ── relative Phase jedes Hᵢ gegen H_ref
+                → trägt Interferenz, Form, Bild
+```
+
+---
+
+## 7. Verbleibende offene Punkte (für die nächsten Bausteine)
+
+- **K2 — Polarisation rein vs. partiell (entschieden, hier festgehalten).**
+  Ein einzelnes `H` ist **rein** polarisiert (Jones-Vektor). *Partielle*
+  Polarisation entsteht durch Mittelung über ein Hexafeld inkohärenter
+  Hexaphotonen und ist daher eine `{Hᵢ}`-Eigenschaft (analog zur Phase).
+  Stokes-Parameter werden erst auf Hexafeld-Ebene eingeführt.
+
+- **K3 — `h` statt `h_eff` (entschieden, hier festgehalten).**
+  Da ein Hexaphoton = eine Mode und das System klassisch bleibt, ist `h` das
+  echte Plancksche Wirkungsquantum. Die Größen „`h_eff`" und „`N_eff`" aus
+  v3.0 werden **gestrichen**. (Die Energie eines *Hexafelds* ergibt sich durch
+  Summation der Einzel-Energien, nicht durch ein `N_eff`.)
+
+- **K4 — neu, für Baustein 2.**
+  Das Mapping `F` (Hexaphoton → Modalamplitude) muss definieren, wie aus den
+  Eigenschaften A1–A3 und der relativen Phase eine komplexe Modalamplitude
+  `aₖ` wird. Offen: in welcher Modenbasis, und wie die relative Phase
+  konkret in `aₖ` eingeht.
+
+---
+
+*Ende Baustein 1, Revision 3. Nächster Schritt: Baustein 2 — Definition des
+Mappings F von H (bzw. dem Hexafeld {Hᵢ}) auf Modalamplituden.*
