@@ -9,31 +9,31 @@ Es bildet die formale Grundlage der Bausteine 1–4.
 
 1.1 Definition
 
-Ein Hexaphoton ist ein Tripel aus drei unabhängigen Freiheitsgraden:
+Ein Hexaphoton ist ein Tripel:
 
-\( H = (f, P, d) \)
+H = (f, P, d)
 
 mit:
 
-- \( f \in \mathbb{R}^+ \): Frequenz  
-- \( P \in \mathbb{C}^2 \): Polarisationsvektor  
-- \( d \in S^2 \): Richtungsvektor  
+- f : Frequenz (positiv)  
+- P : Polarisationsvektor (komplex 2D)  
+- d : Richtungsvektor (Norm = 1)
 
 ---
 
 1.2 Abgeleitete Größen
 
-Energie
-\( E(H) = h f \)
+Energie:  
+E = h * f
 
-Impuls
-\( p(H) = \frac{h f}{c} \, d \)
+Impuls:  
+p = (h  f / c)  d
 
-Phase
+Phase:  
 Die Phase ist keine Eigenschaft eines einzelnen Hexaphotons.  
 Sie entsteht erst im Ensemble:
 
-\( \phi{ij} = \phii - \phi_j \)
+phiij = phii - phi_j
 
 ---
 
@@ -41,7 +41,7 @@ Sie entsteht erst im Ensemble:
 
 Ein Hexafeld ist eine Menge von Hexaphotonen:
 
-\( \mathcal{H} = \{ H1, H2, \dots, H_n \} \)
+H_set = { H1, H2, ..., Hn }
 
 ---
 
@@ -49,51 +49,54 @@ Ein Hexafeld ist eine Menge von Hexaphotonen:
 
 3.1 Definition
 
-Das Mapping F ordnet jedem Hexaphoton einen Beitrag zur klassischen Welle zu:
+F ordnet jedem Hexaphoton einen Wellenbeitrag zu:
 
-\( F(H) = A \, P \, e^{i(k \cdot x - \omega t)} \)
+F(H) = A  P  exp(i  (kx - omega*t))
 
 mit:
 
-- \( \omega = 2\pi f \)  
-- \( k = \frac{2\pi f}{c} d \)  
-- \( A \in \mathbb{C} \): Amplitude  
+omega = 2pif  
+k = (2pif/c) * d  
+A = komplexe Amplitude
 
-F ist linear:
+Linearität:
 
-\( F(aH1 + bH2) = aF(H1) + bF(H2) \)
+F(aH1 + bH2) = aF(H1) + bF(H2)
 
 ---
 
 3.2 Superposition
 
-Die resultierende Welle eines Hexafeldes ist:
+Die resultierende Welle eines Hexafeldes:
 
-\( E(x,t) = \sum{i=1}^{n} F(Hi) \)
+E(x,t) = Summe ueber i von F(Hi)
 
 ---
 
-4. Der Materie‑Operator T_M
+4. Der Materie-Operator T_M
 
 4.1 Definition
 
 Materie wirkt auf ein Hexaphoton durch:
 
-\( T_M(H) = (f', P', d') \)
+T_M(H) = (f', P', d')
 
-In linearer Optik gilt:
+In linearer Optik:
 
-- \( f' = f \)  
-- \( P' = M_P \, P \)  
-- \( d' = M_d \, d \)
+f' = f  
+P' = M_P * P  
+d' = M_d * d
+
+M_P = Jones- oder Mueller-Matrix  
+M_d = Richtungsoperator (Brechung, Reflexion, Streuung)
 
 ---
 
 4.2 Absorption
 
-Absorption wird durch einen Faktor \( \alpha \in [0,1] \) beschrieben:
+Absorption wird durch einen Faktor alpha in [0,1] beschrieben:
 
-\( T_M(H) = \alpha \cdot (f, P', d') \)
+T_M(H) = alpha * (f, P', d')
 
 ---
 
@@ -101,21 +104,21 @@ Absorption wird durch einen Faktor \( \alpha \in [0,1] \) beschrieben:
 
 Emission ist ein separater Prozess:
 
-\( \emptyset \longrightarrow H_{\text{emit}} \)
+(empty) -> H_emit
 
 ---
 
-5. Nichtlineare Erweiterung T\*_M (optional)
+5. Nichtlineare Erweiterung T_M* (optional)
 
-Für nichtlineare Effekte:
-
-\( T^*_M(H) = (f + \Delta f, \; P', \; d') \)
+TM*(H) = (f + Deltaf, P', d')
 
 Beispiele:
 
-- Raman‑Streuung  
+- Raman-Streuung  
 - SHG / THG  
-- Kerr‑Effekt  
+- Kerr-Effekt  
+
+T_M* ist nicht Teil des Kernsystems.
 
 ---
 
@@ -123,11 +126,11 @@ Beispiele:
 
 Das System ist konsistent, wenn:
 
-1. \( f' = f \)  
-2. \( P' = M_P P \)  
-3. \( d' = M_d d \)  
-4. \( E = \sumi F(Hi) \)  
-5. Keine neue Physik eingeführt wird  
+1. Frequenz erhalten bleibt: f' = f  
+2. Polarisation korrekt transformiert wird: P' = M_P * P  
+3. Richtung korrekt transformiert wird: d' = M_d * d  
+4. Superposition gilt: E = Summe F(Hi)  
+5. Keine neue Physik eingefuehrt wird
 
 ---
 
@@ -138,8 +141,8 @@ Dieses Dokument definiert:
 - das Hexaphoton  
 - das Hexafeld  
 - das Mapping F  
-- den Materie‑Operator T_M  
-- die optionale Erweiterung T\*_M  
+- den Materie-Operator T_M  
+- die optionale Erweiterung T_M*  
 - die Konsistenzbedingungen  
 
 Es bildet die mathematische Grundlage der Bausteine 1–4.
