@@ -1,0 +1,402 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% Code listing style
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{white},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    tabsize=4
+}
+
+\title{Hexaphotone: The Six-Dimensional Information-Centric Framework for Classical Wave Optics}
+\author{Manuel Julin}
+\date{Version 3.1 - Revised Edition \\ \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document presents a revised, self-contained formulation of the Hexaphotone framework: an information-centric classical wave-optics model representing the informational state of an electromagnetic radiation element by a six-component vector $\mathbf{H} = (E, f, P_i, \phi, \vec{p}, \vec{d})$. The framework is explicitly classical; quantum extensions are outlined as future work. Light fields are modelled as superpositions of information-carrying modes; interactions with matter are represented as linear operators on modal coefficient spaces. A canonical Gaussian mapping from the Hexaphoton vector to modal amplitudes is defined and connected to classical scattering theory (Mie and T-matrix). Explicit physical constraints between the six components are introduced. Numerical pipeline, validation metrics, and experimentally testable protocols including one prediction specific to the Hexaphotone framework are specified to ensure reproducibility.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+Classical electrodynamics describes light fields through Maxwell's equations and their solutions in various bases (plane waves, multipoles, Gaussian beams). This description can obscure the informational content of a field: which degrees of freedom carry the source signature, and how does matter transform them into observable patterns?
+
+The Hexaphotone framework reframes six standard electromagnetic field descriptors as a compact information vector, emphasizing modal structure and linear operator action. The framework is modular:
+
+\begin{itemize}
+    \item A source representation: the Hexaphoton ensemble $\{H_i\}$.
+    \item A modal mapping $F$: produces incident modal amplitudes $a_k(H)$.
+    \item A material/operator model $T^M$: transforms incident into outgoing modes.
+\end{itemize}
+
+\textbf{Scope (v3.1):} The present formulation is a classical wave-optics framework. It does not quantize the field and makes no claims about single-photon quantum effects. Quantum extensions are described in Section \ref{sec:discussion} as future work.
+
+\section{Formal Definitions and Component Constraints}
+\label{sec:constraints}
+\subsection{The Hexaphoton Vector}
+The Hexaphoton vector is defined as:
+\[
+\mathbf{H} = (E, f, P_i, \phi, \vec{p}, \vec{d})
+\]
+where the components are described in Table \ref{tab:hexaphoton_components}.
+
+\begin{table}[h]
+\centering
+\caption{Components of the Hexaphoton vector $\mathbf{H}$.}
+\label{tab:hexaphoton_components}
+\begin{tabular}{>{\bfseries}lc l}
+\toprule
+\textbf{Component} & \textbf{Symbol} & \textbf{Description} \\
+\midrule
+Energy scale & $E$ & Proportional to total modal energy; $E > 0$. \\
+Frequency & $f$ & Central frequency or spectral centroid; $f > 0$. \\
+Polarization & $P_i$ & Jones vector (coherent) or Stokes parameters (partial). \\
+Phase & $\phi$ & Global or reference phase; $\phi \in [0, 2\pi)$. \\
+Momentum & $\vec{p}$ & Modal momentum vector (see constraints below). \\
+Direction & $\vec{d}$ & Unit propagation direction; $|\vec{d}| = 1$. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Physical Constraints Between Components}
+The six components are not fully independent. In the classical electromagnetic limit, the following constraints must hold:
+
+\begin{itemize}
+    \item \textbf{Energy-frequency constraint:} For a quasi-monochromatic beam:
+    \[
+    E = h_{\text{eff}} \cdot f \cdot N_{\text{eff}}
+    \]
+    where $h_{\text{eff}}$ is an effective action scale and $N_{\text{eff}}$ is the effective mode occupation. $E$ and $f$ are coupled.
+
+    \item \textbf{Momentum-frequency-direction constraint:}
+    \[
+    |\vec{p}| = \frac{h_{\text{eff}} \cdot f}{c} = \frac{2\pi h_{\text{eff}}}{\lambda}, \quad \vec{p} = |\vec{p}| \cdot \vec{d}
+    \]
+    The direction of $\vec{p}$ must be consistent with $\vec{d}$. Thus, $\vec{p}$ is not an independent parameter; it is determined by $f$ and $\vec{d}$. It is retained in $\mathbf{H}$ as a convenience variable; all implementations must enforce this constraint.
+\end{itemize}
+
+\subsection{Effective Action Scale $h_{\text{eff}}$ and Mode Occupation $N_{\text{eff}}$}
+The effective action scale $h_{\text{eff}}$ and the effective mode occupation $N_{\text{eff}}$ are introduced to maintain consistency with the energy-frequency constraint:
+\[
+E = h_{\text{eff}} \cdot f \cdot N_{\text{eff}}
+\]
+In a quantum interpretation, $h_{\text{eff}}$ corresponds to Planck's constant $h$, and $N_{\text{eff}}$ represents the number of photons or mode occupations. In the classical wave-optics context of the Hexaphotone framework, these parameters are **calibrated experimentally** and do not imply quantization. They serve as scaling factors to relate the energy $E$ and frequency $f$ in a physically meaningful way.
+
+\subsection{Field Representation as Modal Superposition}
+The electric field is represented as a superposition of modes:
+\[
+\mathbf{E}(\mathbf{r}, t) = \sum_{k=0}^{\infty} a_k(t) u_k(\mathbf{r})
+\]
+where $u_k(\mathbf{r})$ is an orthonormal set of spatial (and vector) modes, and $a_k(t)$ are complex modal amplitudes encoding amplitude, phase, and polarization.
+
+The spatial Fourier transform of the field is:
+\[
+\tilde{\mathbf{E}}(\mathbf{k}, t) = \mathcal{F}\{\mathbf{E}(\mathbf{r}, t)\}(\mathbf{k})
+\]
+
+\section{Operator Formalism for Interactions}
+\subsection{Material Operator (General Linear Model)}
+The output field is related to the input field by a material operator:
+\[
+\mathbf{E}_{\text{out}}(\mathbf{r}, t) = T_M[\mathbf{E}_{\text{in}}(\mathbf{r}, t)]
+\]
+In the spatial-frequency representation:
+\[
+\tilde{\mathbf{E}}_{\text{out}}(\mathbf{k}, t) = H_M(\mathbf{k}; f) \cdot \tilde{\mathbf{E}}_{\text{in}}(\mathbf{k}, t)
+\]
+where $H_M(\mathbf{k}; f)$ is a complex, matrix-valued transfer function encoding geometry, material parameters, and frequency dependence.
+
+\subsection{Measurement as Projection}
+Measurement outcomes are inner products of the outgoing field with detector modes $m_j$:
+\[
+I_j = \langle m_j, \mathbf{E}_{\text{out}} \rangle = \int m_j^*(\mathbf{r}) \cdot \mathbf{E}_{\text{out}}(\mathbf{r}) \, d^3 r
+\]
+Apparent state reduction is interpreted as selection of modal channels by the measurement operator.
+
+\subsection{Operator Decomposition}
+The material operator can be decomposed as:
+\[
+T_M = T_{\text{prop}} \circ T_{\text{surf}} \circ T_{\text{bulk}}
+\]
+where the components represent free propagation, surface interactions (reflection/refraction), and bulk scattering. Each admits a representation in the chosen modal basis.
+
+\section{Mapping Hexaphoton to Modal Amplitudes (Canonical Form)}
+\label{sec:canonical_gaussian}
+A mapping $F$ assigns modal amplitudes to a Hexaphoton vector. In v3.1, a canonical Gaussian parameterization is defined as the reference implementation.
+
+\subsection{Canonical Gaussian Prototype in k-Space}
+The modal amplitude distribution is given by:
+\[
+a(\mathbf{k}; \mathbf{H}) = A(E, f) \cdot P(P_i) \cdot \exp \left( \frac{-|\mathbf{k} - \mathbf{k}_0|^2}{2 \sigma(f)^2} \right) \cdot e^{i \phi}
+\]
+where:
+\begin{itemize}
+    \item $\mathbf{k}_0 = \frac{2\pi f}{c} \vec{d}$: Central wavevector, determined by the propagation direction $\vec{d}$ and the constraint $|\mathbf{k}_0| = 2\pi f / c$.
+    \item $\sigma(f) = \alpha \cdot f / c$: frequency-dependent spectral spread; $\alpha$ is calibrated to the source bandwidth.
+    \item $A(E, f)$: normalization amplitude enforcing the energy constraint $\sum_k |a_k|^2 = C \cdot E$.
+    \item $P(P_i)$: Jones-vector polarization weight for each vector mode component.
+    \item $\phi$: global phase factor via $e^{i \phi}$.
+\end{itemize}
+
+\subsection{Normalization Amplitude $A(E, f)$}
+The normalization amplitude $A(E, f)$ ensures that the energy constraint $\sum_k |a_k|^2 = C \cdot E$ is satisfied. For the canonical Gaussian distribution, it is given by:
+\[
+A(E, f) = \sqrt{\frac{C \cdot E}{\int \exp\left( \frac{-|\mathbf{k} - \mathbf{k}_0|^2}{\sigma(f)^2} \right) d^2 k}}
+\]
+where $C$ is a calibration constant determined experimentally. The integral in the denominator can be evaluated analytically for a Gaussian distribution:
+\[
+\int \exp\left( \frac{-|\mathbf{k} - \mathbf{k}_0|^2}{\sigma(f)^2} \right) d^2 k = \pi \sigma(f)^2
+\]
+Thus, the normalization amplitude simplifies to:
+\[
+A(E, f) = \sqrt{\frac{C \cdot E}{\pi \sigma(f)^2}}
+\]
+
+\subsection{Projection onto Discrete Modal Basis}
+The modal amplitudes are projected onto a discrete basis:
+\[
+a_k(\mathbf{H}) = \int u_k^*(\mathbf{k}) a(\mathbf{k}; \mathbf{H}) \, d^2 k
+\]
+The mapping $F_k$ is fully specified by $\{\alpha, C\}$ and the choice of modal basis. Alternative parameterizations define model variants; all must satisfy the constraints in Section \ref{sec:constraints}.
+
+\textbf{Falsifiability note:} With the canonical form defined, the model has two free scalar parameters $(\alpha, C)$ fixed by at most two independent measurements before any further prediction is made. All further predictions are then parameter-free given that calibration.
+
+\section{Connection to Scattering Theory (Mie and T-Matrix)}
+\subsection{Mie Theory as Sphere Reference Operator}
+For a homogeneous dielectric sphere (radius $R$, refractive index $m$), Mie theory yields multipole coefficients $a_n(f), b_n(f)$ and angular scattering amplitude $S(\theta, \phi; f)$. Under paraxial mapping, angular scattering maps to transverse wavevectors $\mathbf{k}_\perp$:
+\[
+H_{\text{mie}}(\mathbf{k}; f) \approx \sum_{n=0}^N a_n(f) Y_n(\hat{k}), \quad k_\perp = \frac{2\pi}{\lambda} \sin \theta \quad \text{(paraxial)}
+\]
+
+\subsection{T-Matrix Generalization}
+The T-matrix maps incident multipole coefficients to scattered multipole coefficients for arbitrary scatterers, yielding a matrix representation of $T^M$ in the modal basis:
+\[
+a_{\text{out}}(\mathbf{k}) = H_M(\mathbf{k}) \cdot a_{\text{in}}(\mathbf{k})
+\]
+with $a_{\text{in}}$ produced by the Hexaphoton mapping $F$ and $H_M$ provided by Mie/T-matrix or a numerical solver.
+
+\section{Numerical Implementation and Reproducibility}
+\subsection{Computational Pipeline}
+\begin{enumerate}
+    \item Define Hexaphoton ensemble $\{H_i\}$ and enforce constraints from Section \ref{sec:constraints}.
+    \item Construct canonical modal distributions $a(\mathbf{k}; H_i)$ using the Gaussian prototype (Section \ref{sec:canonical_gaussian}).
+    \item Discretize $\mathbf{k}$-space; ensure Nyquist sampling for the spatial domain of interest.
+    \item Compute incident field via inverse Fourier transform of $a(\mathbf{k})$.
+    \item Compute object operator: for a sphere, use a Mie library to obtain $S(\theta, \phi)$; map to $H_M(\mathbf{k})$. For general objects, use T-matrix or numerical solvers (BEM, FEM, FDTD).
+    \item Apply operator: $a_{\text{out}}(\mathbf{k}) = H_M(\mathbf{k}) \cdot a_{\text{in}}(\mathbf{k})$.
+    \item Reconstruct outgoing field and compute observables $I(\mathbf{r}) = |\mathbf{E}(\mathbf{r})|^2$.
+\end{enumerate}
+
+\subsection{Validation Metrics}
+\begin{itemize}
+    \item Mean Squared Error (MSE):
+    \[
+    \text{MSE} = \frac{1}{N} \sum_{i=1}^N \left( I_{\text{ref}}(\mathbf{r}_i) - I_{\text{model}}(\mathbf{r}_i) \right)^2
+    \]
+    \item Spectral overlap: normalized inner product of Fourier spectra.
+    \item Polarization fidelity: angular difference and degree-of-polarization comparison.
+\end{itemize}
+
+\subsection{Software Recommendations}
+\begin{itemize}
+    \item Numerical core: NumPy, SciPy, Matplotlib.
+    \item Mie: \texttt{miepython} or equivalent validated library.
+    \item T-matrix: available packages for spheroids and aggregates.
+    \item Reproducibility: Jupyter notebooks, parameter YAML files, \texttt{requirements.txt} with pinned versions.
+\end{itemize}
+
+\section{Experimental Predictions and Test Protocols}
+\label{sec:predictions}
+v3.1 update: Predictions A--C are standard wave-optics consistency checks. Prediction D is specific to the Hexaphotone framework.
+
+\subsection{Prediction A: Reflection Imaging of Shaped Surfaces}
+A shaped reflective surface illuminated by a Hexaphoton ensemble will produce a projected intensity distribution preserving contour information when $T^M$ transmits the relevant modal channels.
+\begin{itemize}
+    \item \textbf{Measurement:} Compare projected intensity with model predictions.
+    \item \textbf{Role:} Consistency check with classical optics.
+\end{itemize}
+
+\subsection{Prediction B: Slit Filtering and Source Dominance}
+A narrow aperture suppresses high spatial frequencies; transmitted patterns emphasize low-frequency components reflecting source structure.
+\begin{itemize}
+    \item \textbf{Measurement:} Record transmitted intensity for different aperture geometries and compare Fourier spectra to incident modal distribution.
+    \item \textbf{Role:} Classical diffraction consistency check.
+\end{itemize}
+
+\subsection{Prediction C: Sphere Reference Test (Mie)}
+A homogeneous dielectric sphere acts as a known operator $H_M^{\text{mie}}$. For incident Hexaphoton distributions with controlled $\vec{d}$ and $\vec{p}$, the scattered angular distribution should match Mie-based predictions when the canonical mapping $F$ is applied with calibrated $(\alpha, C)$.
+\begin{itemize}
+    \item \textbf{Measurement:} Angularly resolved scattering and near-field intensity mapping.
+    \item \textbf{Role:} Consistency check and parameter calibration.
+\end{itemize}
+
+\subsection{Prediction D: Phase-Encoded Directional Discrimination (Framework-Specific)}
+Two Hexaphoton ensembles identical in $(E, f, P_i, \vec{p})$ but differing only in $\phi$ and $\vec{d}$ should produce distinguishable far-field patterns through an asymmetric aperture, because the canonical mapping encodes $\phi$ as a global phase shift altering interference with aperture boundary modes.
+
+\subsubsection{Why Prediction D Differs from Classical Fourier Optics}
+In classical Fourier optics, a global phase shift $\phi$ applied to the entire field does not affect the intensity distribution, as intensity is given by $I(\mathbf{r}) = |\mathbf{E}(\mathbf{r})|^2$. However, in the Hexaphotone framework, the global phase $\phi$ is encoded in the modal amplitudes $a(\mathbf{k}; \mathbf{H})$ as:
+\[
+a(\mathbf{k}; \mathbf{H}) = A(E, f) \cdot P(P_i) \cdot \exp \left( \frac{-|\mathbf{k} - \mathbf{k}_0|^2}{2 \sigma(f)^2} \right) \cdot e^{i \phi}
+\]
+When the field interacts with an **asymmetric aperture**, the phase shift $\phi$ alters the interference pattern between the incident field and the aperture boundary modes. This leads to **distinguishable far-field intensity distributions** for different values of $\phi$, even if all other components $(E, f, P_i, \vec{p})$ are identical. This effect is a **framework-specific prediction** and provides a falsifiable test for the Hexaphotone model.
+
+\begin{itemize}
+    \item \textbf{Measurement:} Single-mode interferometric detection after asymmetric aperture; record visibility vs. $\Delta \phi$.
+    \item \textbf{Role:} Framework-specific falsifiable test.
+\end{itemize}
+
+\subsection{Protocol Essentials}
+\begin{itemize}
+    \item Use narrowband and broadband sources to separate spectral effects.
+    \item Record polarization-resolved intensity.
+    \item Calibrate detectors; correct for system transfer functions.
+    \item Fix $(\alpha, C)$ using Predictions A--C before testing Prediction D.
+    \item Provide raw data and processing scripts for reproducibility.
+\end{itemize}
+
+\section{Discussion, Limitations and Extensions}
+\label{sec:discussion}
+The Hexaphotone framework is an information-centric modelling layer interfacing source characterization and classical scattering/propagation operators. With the canonical Gaussian mapping defined in v3.1, the framework is now falsifiable with two free parameters fixed by calibration.
+
+\subsection{Limitations}
+\begin{itemize}
+    \item Classical only: single-photon quantum effects require field quantization; outside present scope.
+    \item Linear operators only: nonlinear and inelastic interactions are not covered.
+    \item Constraint enforcement: implementations must explicitly enforce the $E$--$f$--$\vec{p}$ constraint (Section \ref{sec:constraints}).
+    \item Modal basis dependence: numerical efficiency and interpretability depend on the choice of basis $\{u_k\}$.
+\end{itemize}
+
+\subsection{Extensions}
+\begin{itemize}
+    \item Include orbital angular momentum (OAM) and topological mode indices as a 7th information channel.
+    \item Extend $F$ to stochastic ensembles to model partial coherence via the mutual coherence function.
+    \item Promote modal amplitudes to annihilation/creation operators; define Hexaphoton states in Fock space.
+    \item Machine-learning parameterization of $F$ trained on experimental scattering data.
+\end{itemize}
+
+\section{Conclusion}
+Hexaphotone Theory v3.1 formalizes an information-centric classical wave-optics representation of light and provides a modular operator framework relating source information to observable fields via established scattering theory. Key improvements over v3.0 include:
+\begin{itemize}
+    \item Explicit physical constraints between the six Hexaphoton components.
+    \item A canonical Gaussian modal mapping with two calibratable parameters.
+    \item A framework-specific experimental prediction (Prediction D) falsifiable independently of classical Fourier optics.
+\end{itemize}
+The framework is modular and extensible for further theoretical and experimental development.
+
+\section*{References}
+\begin{thebibliography}{9}
+    \bibitem{goodman} Goodman, J.W. \textit{Introduction to Fourier Optics}, 3rd ed. Roberts and Company, 2005. ISBN 978-0974707723.
+    \bibitem{born} Born, M. and Wolf, E. \textit{Principles of Optics}, 7th ed. Cambridge University Press, 1999. DOI: \texttt{10.1017/CBO9781139644181}.
+    \bibitem{bohren} Bohren, C.F. and Huffman, D.R. \textit{Absorption and Scattering of Light by Small Particles}. Wiley-VCH, 1998. ISBN 978-0471293408.
+    \bibitem{mishchenko} Mishchenko, M.I., Travis, L.D., Lacis, A.A. \textit{Scattering, Absorption, and Emission of Light by Small Particles}. Cambridge University Press, 2002.
+    \bibitem{waterman} Waterman, P.C. Matrix formulation of electromagnetic scattering. \textit{Proceedings of the IEEE}, 53(8):805--812, 1965. DOI: \texttt{10.1109/PROC.1965.4058}.
+    \bibitem{saleh} Saleh, B.E.A. and Teich, M.C. \textit{Fundamentals of Photonics}, 3rd ed. Wiley, 2019. ISBN 978-1119506874.
+\end{thebibliography}
+
+\section*{License}
+\textcopyright{} Manuel Julin. Licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA 4.0). You are free to share and adapt the material provided you give appropriate credit, indicate changes, and distribute derivatives under the same license.
+
+\section*{Ethical Use Statement}
+This project is licensed under CC-BY-SA 4.0. The author objects to any use of this work for the design, development, production or deployment of weapons or other instruments of harm.
+
+\appendix
+\section{Central Equations}
+\subsection{Hexaphoton Vector}
+\[
+\mathbf{H} = (E, f, P_i, \phi, \vec{p}, \vec{d})
+\]
+
+\subsection{Energy-Frequency Constraint}
+\[
+E = h_{\text{eff}} \cdot f \cdot N_{\text{eff}}
+\]
+
+\subsection{Momentum Constraint}
+\[
+|\vec{p}| = \frac{h_{\text{eff}} \cdot f}{c} = \frac{2\pi h_{\text{eff}}}{\lambda}, \quad \vec{p} = |\vec{p}| \cdot \vec{d}
+\]
+
+\subsection{Modal Expansion}
+\[
+\mathbf{E}(\mathbf{r}, t) = \sum_{k=0}^{\infty} a_k(t) u_k(\mathbf{r})
+\]
+
+\subsection{Fourier Transform}
+\[
+\tilde{\mathbf{E}}(\mathbf{k}, t) = \mathcal{F}\{\mathbf{E}(\mathbf{r}, t)\}(\mathbf{k})
+\]
+
+\subsection{Transfer Function}
+\[
+\tilde{\mathbf{E}}_{\text{out}} = H_M(\mathbf{k}; f) \cdot \tilde{\mathbf{E}}_{\text{in}}
+\]
+
+\subsection{Measurement Projection}
+\[
+I_j = \int m_j^*(\mathbf{r}) \cdot \mathbf{E}_{\text{out}}(\mathbf{r}) \, d^3 r
+\]
+
+\subsection{Canonical Gaussian Mapping}
+\[
+a(\mathbf{k}; \mathbf{H}) = A(E, f) \cdot P(P_i) \cdot \exp \left( \frac{-|\mathbf{k} - \mathbf{k}_0|^2}{2 \sigma(f)^2} \right) \cdot e^{i \phi}
+\]
+
+\subsection{Normalization Amplitude}
+\[
+A(E, f) = \sqrt{\frac{C \cdot E}{\pi \sigma(f)^2}}
+\]
+
+\subsection{Mode Projection}
+\[
+a_k(\mathbf{H}) = \int u_k^*(\mathbf{k}) a(\mathbf{k}; \mathbf{H}) \, d^2 k
+\]
+
+\subsection{Operator Composition}
+\[
+T_M = T_{\text{prop}} \circ T_{\text{surf}} \circ T_{\text{bulk}}
+\]
+
+\subsection{Operator Application}
+\[
+a_{\text{out}}(\mathbf{k}) = H_M(\mathbf{k}) \cdot a_{\text{in}}(\mathbf{k})
+\]
+
+\subsection{Intensity}
+\[
+I(\mathbf{r}) = |\mathbf{E}(\mathbf{r})|^2
+\]
+
+\subsection{Mean Squared Error (MSE)}
+\[
+\text{MSE} = \frac{1}{N} \sum_{i=1}^N \left( I_{\text{ref}}(\mathbf{r}_i) - I_{\text{model}}(\mathbf{r}_i) \right)^2
+\]
+
+\end{document}
