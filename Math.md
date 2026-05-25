@@ -1,156 +1,115 @@
-# Mathematische Grundlagen der Hexaphotonischen Notation (Version 4.1)
+Mathematische Grundlagen der Hexaphotonischen Notation (Version 4.1)
 
-Dieses Dokument fasst alle mathematischen Definitionen des
-Hexaphoton‑Notation‑Systems zusammen.  
+Dieses Dokument fasst alle mathematischen Definitionen des Hexaphoton‑Notation‑Systems zusammen.  
 Es bildet die formale Grundlage der Bausteine 1–4.
 
 ---
 
-# 1. Das Hexaphoton
+1. Das Hexaphoton
 
-## 1.1 Definition
+1.1 Definition
 
 Ein Hexaphoton ist ein Tripel aus drei unabhängigen Freiheitsgraden:
 
-\[
-H = (f, P, d)
-\]
+\( H = (f, P, d) \)
 
 mit:
 
 - \( f \in \mathbb{R}^+ \): Frequenz  
-- \( P \in \mathbb{C}^2 \): Polarisationsvektor (Jones‑Formalismus)  
-- \( d \in S^2 \): Richtungsvektor auf der Einheitssphäre  
-
-Alle weiteren Größen sind abgeleitet.
+- \( P \in \mathbb{C}^2 \): Polarisationsvektor  
+- \( d \in S^2 \): Richtungsvektor  
 
 ---
 
-## 1.2 Abgeleitete Größen
+1.2 Abgeleitete Größen
 
-### Energie
-\[
-E(H) = h f
-\]
+Energie
+\( E(H) = h f \)
 
-### Impuls
-\[
-p(H) = \frac{h f}{c} \, d
-\]
+Impuls
+\( p(H) = \frac{h f}{c} \, d \)
 
-### Phase  
-Die Phase ist **keine Eigenschaft eines einzelnen Hexaphotons**.  
+Phase
+Die Phase ist keine Eigenschaft eines einzelnen Hexaphotons.  
 Sie entsteht erst im Ensemble:
 
-\[
-\phi_{ij} = \phi_i - \phi_j
-\]
+\( \phi{ij} = \phii - \phi_j \)
 
 ---
 
-# 2. Das Hexafeld
+2. Das Hexafeld
 
-Ein Hexafeld ist eine endliche oder abzählbare Menge von Hexaphotonen:
+Ein Hexafeld ist eine Menge von Hexaphotonen:
 
-\[
-\mathcal{H} = \{ H_1, H_2, \dots, H_n \}
-\]
+\( \mathcal{H} = \{ H1, H2, \dots, H_n \} \)
 
 ---
 
-# 3. Das Mapping F
+3. Das Mapping F
 
-## 3.1 Definition
+3.1 Definition
 
-Das Mapping F ordnet jedem Hexaphoton einen Beitrag zur klassischen
-elektromagnetischen Welle zu:
+Das Mapping F ordnet jedem Hexaphoton einen Beitrag zur klassischen Welle zu:
 
-\[
-F(H) = A \, P \, e^{i(k \cdot x - \omega t)}
-\]
+\( F(H) = A \, P \, e^{i(k \cdot x - \omega t)} \)
 
 mit:
 
 - \( \omega = 2\pi f \)  
 - \( k = \frac{2\pi f}{c} d \)  
-- \( A \in \mathbb{C} \): skalierbare Amplitude  
+- \( A \in \mathbb{C} \): Amplitude  
 
-F ist **linear**:
+F ist linear:
 
-\[
-F(aH_1 + bH_2) = aF(H_1) + bF(H_2)
-\]
+\( F(aH1 + bH2) = aF(H1) + bF(H2) \)
 
 ---
 
-## 3.2 Superposition
+3.2 Superposition
 
 Die resultierende Welle eines Hexafeldes ist:
 
-\[
-E(x,t) = \sum_{i=1}^{n} F(H_i)
-\]
-
-Dies entspricht exakt der klassischen Wellenoptik.
+\( E(x,t) = \sum{i=1}^{n} F(Hi) \)
 
 ---
 
-# 4. Der Materie‑Operator T_M
+4. Der Materie‑Operator T_M
 
-## 4.1 Definition
+4.1 Definition
 
 Materie wirkt auf ein Hexaphoton durch:
 
-\[
-T_M(H) = (f', P', d')
-\]
+\( T_M(H) = (f', P', d') \)
 
 In linearer Optik gilt:
 
-\[
-f' = f
-\]
-\[
-P' = M_P \, P
-\]
-\[
-d' = M_d \, d
-\]
-
-mit:
-
-- \( M_P \): Jones‑ oder Mueller‑Matrix  
-- \( M_d \): Richtungsoperator (Brechung, Reflexion, Streuung)  
+- \( f' = f \)  
+- \( P' = M_P \, P \)  
+- \( d' = M_d \, d \)
 
 ---
 
-## 4.2 Absorption
+4.2 Absorption
 
 Absorption wird durch einen Faktor \( \alpha \in [0,1] \) beschrieben:
 
-\[
-T_M(H) = \alpha \cdot (f, P', d')
-\]
+\( T_M(H) = \alpha \cdot (f, P', d') \)
 
 ---
 
-## 4.3 Emission
+4.3 Emission
 
 Emission ist ein separater Prozess:
 
-\[
-\emptyset \longrightarrow H_{\text{emit}}
-\]
+\( \emptyset \longrightarrow H_{\text{emit}} \)
 
 ---
 
-# 5. Nichtlineare Erweiterung T\*_M (optional)
+5. Nichtlineare Erweiterung T\*_M (optional)
 
 Für nichtlineare Effekte:
 
-\[
-T^*_M(H) = (f + \Delta f, \; P', \; d')
-\]
+\( T^*_M(H) = (f + \Delta f, \; P', \; d') \)
 
 Beispiele:
 
@@ -158,40 +117,21 @@ Beispiele:
 - SHG / THG  
 - Kerr‑Effekt  
 
-T\*_M ist **nicht Teil des Kernsystems**.
-
 ---
 
-# 6. Konsistenzbedingungen
+6. Konsistenzbedingungen
 
 Das System ist konsistent, wenn:
 
-1. Frequenz in linearer Optik erhalten bleibt  
-   \[
-   f' = f
-   \]
-
-2. Polarisation korrekt transformiert wird  
-   \[
-   P' = M_P P
-   \]
-
-3. Richtung korrekt transformiert wird  
-   \[
-   d' = M_d d
-   \]
-
-4. Superposition identisch zur klassischen Optik ist  
-   \[
-   E = \sum_i F(H_i)
-   \]
-
+1. \( f' = f \)  
+2. \( P' = M_P P \)  
+3. \( d' = M_d d \)  
+4. \( E = \sumi F(Hi) \)  
 5. Keine neue Physik eingeführt wird  
-   (Notation ≠ Theorie)
 
 ---
 
-# 7. Zusammenfassung
+7. Zusammenfassung
 
 Dieses Dokument definiert:
 
