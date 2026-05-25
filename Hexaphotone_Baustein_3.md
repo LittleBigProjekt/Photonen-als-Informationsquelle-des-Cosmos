@@ -1,19 +1,20 @@
-# Baustein 3 — Der Materie-Operator T_M (Version 4.0)
+# Baustein 3 — Der Materie-Operator T_M (Version 4.1)
 
 ## 3.1 Zweck des Operators
 
 Der Operator **T_M** beschreibt, wie Materie die Eigenschaften eines
 Hexaphotons verändert.  
-Er ist die kompakte Darstellung der klassischen Wechselwirkungen:
+Er ist **keine neue Physik**, sondern eine **kompakte Notation** für
+etablierte klassische Transformationen:
 
-- Absorption  
-- Reflexion  
 - Brechung  
+- Reflexion  
 - Streuung  
 - Polarisationsänderung  
+- Absorption  
 
-T_M ist **kein neuer physikalischer Mechanismus**, sondern eine
-Notation der etablierten linearen Optik.
+T_M fasst Jones-, Mueller-, Fresnel- und Snellius-Formalismen in einer
+einheitlichen Schreibweise zusammen.
 
 ---
 
@@ -31,33 +32,37 @@ Der Materie-Operator wirkt darauf wie folgt:
 T_M(H) = (f', P', d')
 \]
 
-Dabei gilt:
+mit:
 
-- \( f' = f \) in linearer Optik  
-- \( P' = M_P \, P \) (Jones- oder Mueller-Matrix)  
-- \( d' = M_d \, d \) (Richtungsänderung durch Brechung/Streuung)
+- \( f' = f \) (Frequenz bleibt in linearer Optik erhalten)
+- \( P' = M_P \, P \) (Polarisationsmatrix)
+- \( d' = M_d \, d \) (Richtungsänderung)
 
 ---
 
 ## 3.3 Lineare Optik (Standardfall)
 
-### Frequenz
+### Frequenz (immer erhalten)
 \[
 f' = f
 \]
-Die Frequenz bleibt bei allen linearen optischen Prozessen erhalten.
+
+Dies ist eine zentrale Eigenschaft linearer Optik.  
+Jede Frequenzänderung gehört definitionsgemäß **nicht** zu T_M.
 
 ### Polarisation
 \[
 P' = M_P \, P
 \]
+
 mit \( M_P \) als Jones- oder Mueller-Matrix des Materials.
 
 ### Richtung
 \[
 d' = M_d \, d
 \]
-z. B. durch:
+
+Beispiele:
 
 - Snellius-Brechung  
 - Fresnel-Reflexion  
@@ -75,60 +80,72 @@ E' = h f' = h f
 Absorption wird durch einen Dämpfungsfaktor \( \alpha \in [0,1] \) beschrieben:
 
 \[
-T_M(H) = \alpha \cdot H'
+T_M(H) = \alpha \cdot (f, P', d')
 \]
 
-mit \( H' = (f, P', d') \).
+Interpretation:
 
 - \( \alpha = 1 \): keine Absorption  
 - \( \alpha = 0 \): vollständige Absorption  
+- \( 0 < \alpha < 1 \): partielle Absorption  
+
+Absorption ist eine Abbildung:
+
+\[
+H \;\longrightarrow\; \alpha H'
+\]
 
 ---
 
-## 3.5 Emission
+## 3.5 Emission (separater Prozess)
 
-Emission wird **nicht** durch T_M beschrieben, da sie ein separater Prozess ist
-(Spontan- oder stimulierte Emission).  
-Ein emittiertes Hexaphoton wird als neues Objekt erzeugt:
+Emission ist **nicht** durch T_M beschrieben.  
+Sie erzeugt ein neues Hexaphoton:
+
+\[
+\emptyset \;\longrightarrow\; H_{\text{emit}}
+\]
+
+mit:
 
 \[
 H_{\text{emit}} = (f_{\text{emit}}, P_{\text{emit}}, d_{\text{emit}})
 \]
 
+Damit sind Absorption und Emission **klar getrennt**:
+
+- Absorption: Transformation eines existierenden Hexaphotons  
+- Emission: Erzeugung eines neuen Hexaphotons  
+
 ---
 
 ## 3.6 Nichtlineare Erweiterungen (optional)
 
-Für spätere Arbeiten kann ein erweiterter Operator **T\*_M** definiert werden,
-der nichtlineare Effekte beschreibt:
-
-- Frequenzverschiebung (Raman, Brillouin)
-- Erzeugung neuer Frequenzen (SHG, THG)
-- Intensitätsabhängige Brechung (Kerr-Effekt)
-- Polarisationseffekte jenseits linearer Optik
-
-Beispiel:
+Für spätere Arbeiten kann ein erweiterter Operator **T\*_M** definiert werden:
 
 \[
 T^*_M(H) = (f + \Delta f, \; P', \; d')
 \]
 
-Diese Erweiterung ist **nicht Bestandteil** des Kernsystems.
+Er beschreibt Effekte wie:
+
+- Raman- und Brillouin-Streuung  
+- Erzeugung neuer Frequenzen (SHG, THG)  
+- Kerr-Effekt  
+- Intensitätsabhängige Brechung  
+
+**Wichtig:**  
+T\*_M ist **nicht Bestandteil** des Kernsystems.
 
 ---
 
-## 3.7 Beziehung zu den Hypothesen (Interpretation)
+## 3.7 Entkopplung von spekulativen Hypothesen
 
-Die Hypothesen H1 und H2 aus der separaten Sammlung können als
-**Interpretationsrahmen** dienen, sind aber **nicht Teil des Operators**:
+Spekulative Ideen aus der Hypothesen-Sammlung (z. B. Fortbestand absorbierter
+Photonen, Identität von Photonen) werden **nicht** durch T_M beschrieben.
 
-- **H1** (Fortbestand absorbierter Photonen):  
-  → keine Integration in T_M, da Absorption vollständig durch \( \alpha \) beschrieben wird.
-
-- **H2** (Identität absorbierter/emittierter Photonen):  
-  → Emission erzeugt neue Hexaphotonen; Identität ist nicht definiert.
-
-Diese Hypothesen bleiben bewusst **außerhalb** des Notationssystems.
+Der Operator bildet ausschließlich **klassische, experimentell bestätigte**
+Transformationen ab.
 
 ---
 
@@ -136,13 +153,13 @@ Diese Hypothesen bleiben bewusst **außerhalb** des Notationssystems.
 
 Der Operator T_M:
 
-- beschreibt alle klassischen linearen Wechselwirkungen  
-- ist vollständig kompatibel mit Maxwell-Optik  
-- verändert Polarisation und Richtung  
+- ist eine kompakte Notation klassischer Optik  
 - erhält die Frequenz  
+- verändert Polarisation und Richtung  
 - beschreibt Absorption über einen Dämpfungsfaktor  
 - erzeugt **keine** neuen Photonen  
+- ist vollständig kompatibel mit Maxwell-Optik  
 - bleibt frei von spekulativen Annahmen  
 
-Optionale Erweiterungen (T\*_M) ermöglichen später die Beschreibung
-nichtlinearer Effekte, ohne den Kern der Theorie zu verändern.
+Optionale Erweiterungen (T\*_M) ermöglichen die Beschreibung nichtlinearer
+Effekte, ohne den Kern der Theorie zu verändern.
