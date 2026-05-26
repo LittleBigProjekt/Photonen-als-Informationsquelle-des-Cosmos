@@ -1,150 +1,155 @@
-# Hexaphotonische Notation – Photonen als Informationsquelle des Kosmos
+# Hexaphotone — Ein Notations-System für Licht als Informationsträger
 
-Dieses Repository enthält das **Hexaphoton‑Notation-System**, eine kompakte,
-wissenschaftlich anschlussfähige Darstellung der klassischen Optik in Form
-diskreter Informationsobjekte („Hexaphotonen“).  
-Die Theorie beschreibt **keine neue Physik**, sondern strukturiert bekannte
-optische Prozesse in einer klaren, modularen Form.
-
-Das Projekt besteht aus vier geprüften Bausteinen und einer getrennten
-Hypothesen‑Sammlung.
+### Eine kompakte, klassische Beschreibung von Licht über sechs Größen
+**Autor:** Manuel Julin
+**Lizenz:** CC-BY-SA 4.0
+**Status:** Notations-System (Bausteine 1–4) konzeptuell abgeschlossen — work in progress
 
 ---
 
-## 🔷 Ziel des Projekts
+## 📘 Überblick
 
-Das Hexaphoton‑System soll:
+Dieses Repository entwickelt **Hexaphotone** — ein *Notations-System*, das
+Licht über eine kompakte, modulare Beschreibung erfasst.
 
-- klassische Optik **präziser und modularer** beschreiben  
-- Photonen als **Informationsobjekte** darstellen  
-- die Brücke zwischen **Einzelquant** und **klassischer Welle** schlagen  
-- optische Prozesse in **einheitlicher Notation** ausdrücken  
+Wichtig zur Einordnung: Hexaphotone ist **keine neue physikalische Theorie**.
+Es ist eine **Umformulierung etablierter klassischer Wellenoptik** (Maxwell,
+Fourier-Optik, Mie-/T-Matrix-Streutheorie) in einer eigenen, intuitiven
+Notation. Der Erfolgsmaßstab ist nicht „ist es wahr?" — die zugrunde liegende
+Physik ist bekannt und korrekt — sondern „ist es konsistent, eindeutig und
+nützlich?".
 
-Es richtet sich an Physik‑Interessierte, Studierende und Forschende, die
-kompakte Modelle und klare Strukturen schätzen.
-
----
-
-# 📘 Bausteine des Systems
-
-Die Bausteine 1–4 bilden das **offizielle, geprüfte Notations‑System**.
+Spekulative Ideen, die über die etablierte Physik hinausgehen, werden
+**streng getrennt** in einer eigenen Hypothesen-Sammlung geführt (siehe
+Dateiliste). Sie sind **nicht Bestandteil** des Notations-Systems.
 
 ---
 
-## **Baustein 1 – Das Hexaphoton**
+## 🔭 Kernidee: zwei Ebenen
 
-Ein Hexaphoton wird durch **drei unabhängige Freiheitsgrade** beschrieben:
+Das System trennt strikt zwischen zwei Ebenen — die Vermischung beider war
+der zentrale Fehler früherer Entwürfe.
 
-- Frequenz \( f \)  
-- Polarisation \( P \)  
-- Richtung \( d \)
+| Ebene | Symbol | Bedeutung |
+|-------|--------|-----------|
+| **Hexaphoton** | `H` | Ein einzelnes Lichtelement — eine idealisierte Mode. |
+| **Hexafeld** | `{Hᵢ}` | Ein Ensemble vieler Hexaphotonen — eine Quelle oder ein Bild. |
 
-Alle weiteren Größen (Energie, Impuls, Phase) sind **abgeleitet**.  
-Die Phase ist **keine Eigenschaft eines einzelnen Photons**, sondern entsteht
-erst im Ensemble (Hexafeld).
-
-Datei: `Hexaphoton_Baustein_1.md`
-
----
-
-## **Baustein 2 – Das Mapping F**
-
-Das Mapping F beschreibt, wie ein Hexaphoton zur klassischen Welle beiträgt:
-
-\[
-F(H) = A \, P \, e^{i(k \cdot x - \omega t)}
-\]
-
-- F ist **linear**  
-- F erzeugt **keine neue Physik**  
-- Das Hexafeld ist die Summe aller Beiträge
-
-Datei: `Hexaphoton_Baustein_2.md`
+Ein einzelnes Hexaphoton ist *positionslos*: Es trägt eine **Richtung**, aber
+keinen Herkunftsort. Form, Bild, Interferenz, Phase und die räumliche
+Position einer Quelle sind **ausschließlich Hexafeld-Eigenschaften**.
 
 ---
 
-## **Baustein 3 – Der Materie‑Operator T_M**
+## 🧩 Der Hexaphoton-Vektor
 
-T_M beschreibt, wie Materie ein Hexaphoton transformiert:
+Ein Hexaphoton wird traditionell über sechs Größen benannt:
 
-- Frequenz bleibt erhalten  
-- Polarisation wird durch Matrizen verändert  
-- Richtung ändert sich durch Brechung/Streuung  
-- Absorption wird durch einen Dämpfungsfaktor \( \alpha \) beschrieben  
-- Emission erzeugt **neue** Hexaphotonen (nicht Teil von T_M)
+```
+H = ( E , f , P , φ , p⃗ , d⃗ )
+```
 
-Nichtlineare Effekte werden optional durch \( T_M^* \) beschrieben.
+Diese sechs Größen sind **nicht gleichartig**. Sie zerfallen in drei Klassen:
 
-Datei: `Hexaphoton_Baustein_3.md`
+| Klasse | Größen | Charakter |
+|--------|--------|-----------|
+| **Primär** | `f` (Frequenz), `P` (Polarisation), `d⃗` (Richtung) | Die drei unabhängigen Freiheitsgrade eines einzelnen Hexaphotons. |
+| **Abgeleitet** | `E` (Energie), `p⃗` (Impuls) | Folgen über feste Constraints aus den Primärgrößen. |
+| **Relation** | `φ` (Phase) | Keine Eigenschaft eines einzelnen `H`. Nur als Beziehung *zwischen* Hexaphotonen im Hexafeld definiert. |
 
----
+Ein einzelnes Hexaphoton hat damit **3 unabhängige Freiheitsgrade**. Die
+Bezeichnung „Hexa" (sechs) ist eine eingängige Etikette für die sechs
+Größenarten — **kein Naturgesetz**.
 
-## **Baustein 4 – Konsistenzprüfung (Mie‑Streuung)**
+### Constraint-Gleichungen
 
-Dieser Baustein zeigt, dass das Hexaphoton‑System vollständig kompatibel mit
-der klassischen Optik ist.  
-Die Mie‑Streuung dient als Beispiel:
-
-- winkelabhängige Intensität  
-- Polarisation  
-- Phasenverschiebungen  
-- Superposition  
-
-Alle Größen lassen sich direkt aus F und T_M rekonstruieren.
-
-Datei: `Hexaphoton_Baustein_4.md`
+```
+C1   E  = h · f                    (Energie aus Frequenz)
+C2   p⃗  = (h · f / c) · d⃗          (Impuls aus Frequenz und Richtung)
+```
 
 ---
 
-# 🧩 Hypothesen‑Sammlung (separat)
+## 🗂️ Die vier Bausteine
 
-Die Datei `Hexaphotone_Hypothesen_Sammlung.md` enthält **spekulative Ideen**,
-die während der Entwicklung entstanden sind.  
-Sie sind **nicht Teil der Theorie**, sondern dokumentieren den Denkweg des
-Autors.
+Das System ist in vier aufeinander aufbauenden **Bausteinen** organisiert:
 
-Beispiele:
-
-- Fortbestand absorbierter Photonen  
-- Identität von Photonen  
-- innere Struktur des Photons  
-- alternative Gravitationserklärungen  
-
-Jede Hypothese ist strukturiert nach:
-
-- Annahme  
-- Motivation  
-- Konflikt mit Beobachtungen  
-- Was prüfbar wäre  
+| Baustein | Inhalt |
+|----------|--------|
+| **1 — Das Hexaphoton** | Definition von Hexaphoton, Hexafeld, den drei Größenklassen und den Constraints. |
+| **2 — Das Mapping F** | Übersetzung eines Hexaphotons/Hexafelds in eine konkrete Lichtwelle. Enthält die Lösungen K5 (Polarisationsvektor), K6 (Amplitude) und K7 (Modalbasis). |
+| **3 — Der Operator T_M** | Wechselwirkung mit Materie: umlenken, auswählen, absorbieren; Emission (Wärmestrahlung, Spektrallinien). |
+| **4 — Konsistenzprüfung** | Prüfung am Beispiel der Mie-Streuung: die Notation dockt widerspruchsfrei an die etablierte Optik an. |
 
 ---
 
-📂 Struktur des Repositories
+## 📄 Inhalte dieses Repositories
 
-/Bausteine
-    HexaphotonBaustein1.md
-    HexaphotonBaustein2.md
-    HexaphotonBaustein3.md
-    HexaphotonBaustein4.md
+| Datei | Inhalt | Status |
+|-------|--------|--------|
+| `README.md` | Diese Übersicht. | aktuell |
+| `Baustein_1_Hexaphoton_v4.md` | Baustein 1 — Definitionen. | aktuell (v4.1) |
+| `Baustein_2_Mapping_v4.md` | Baustein 2 — Mapping F, inkl. K5/K6/K7. | aktuell (v4.1) |
+| `Baustein_3_Operator_v4.md` | Baustein 3 — Operator T_M. | aktuell (v4.2) |
+| `Baustein_4_Konsistenzpruefung_v4.md` | Baustein 4 — Konsistenzprüfung. | aktuell (v4.2) |
+| `Baustein_4_Konsistenzpruefung.py` | Lauffähiges Prüf-Skript (Mie vs. Hexaphotone). | aktuell |
+| `Hexaphotone_Hypothesen_Sammlung.md` | **Getrennte** Sammlung spekulativer Hypothesen (H1–H7). Nicht Teil des Notations-Systems. | aktuell |
+| `LICENSE` | Lizenztext (CC-BY-SA 4.0). | aktuell |
 
-/Hypothesen
-    HexaphotoneHypothesenSammlung.md
-
-README.md
-LICENSE
-
----
-
-📜 Lizenz
-
-Dieses Projekt steht unter CC‑BY‑SA 4.0.  
-Die Inhalte dürfen frei genutzt, geteilt und angepasst werden, solange die
-Urheberschaft genannt und Weitergaben unter derselben Lizenz erfolgen.
+> **Hinweis:** Frühere PDF-Versionen (PB 1.4, 2.0, 3.0) verwenden noch die
+> überholte Bezeichnung „PIV" und vermischen die Hexaphoton- mit der
+> Hexafeld-Ebene. Sie sind durch die Bausteine 1–4 (v4.x) abgelöst und
+> sollten als veraltet gelten.
 
 ---
 
-✨ Status
+## 🗺️ Fahrplan
 
-Die Bausteine 1–4 bilden die stabile Version 4.1 des Systems.  
-Weitere Erweiterungen (z. B. Nichtlinearität, zeitabhängige Felder) sind
-geplant, aber nicht Teil des Kernsystems.
+- [x] **Baustein 1 — Definitionen.** *(abgeschlossen, v4.1)*
+- [x] **Baustein 2 — Das Mapping F.** Inkl. K5, K6, K7 gelöst. *(abgeschlossen, v4.1)*
+- [x] **Baustein 3 — Der Operator T_M.** *(abgeschlossen, v4.2)*
+- [x] **Baustein 4 — Konsistenzprüfung.** *(abgeschlossen, v4.2)*
+- [ ] **Baustein 5 — Unabhängige Validierung.** Den Streuvorgang
+      eigenständig aus den Bausteinen herleiten und numerisch gegen die
+      Mie-Theorie prüfen. Setzt auf dem nun vollständigen Fundament auf.
+- [ ] **Offene Frage (spätere Phase):** Lässt sich eine eigenständige,
+      über die klassische Optik hinausgehende Vorhersage formulieren?
+
+---
+
+## ⚠️ Was Hexaphotone (noch) NICHT ist
+
+Zur Ehrlichkeit gehört, klar zu sagen, was das System aktuell *nicht* leistet:
+
+- Es ist **kein Quantenmodell.** Es quantisiert das Feld nicht und macht
+  keine Aussagen über Einzelphotonen-Quanteneffekte.
+- Es macht **keine Vorhersage**, die nicht auch direkt aus Maxwell/Mie folgt.
+- Es ist **noch nicht unabhängig validiert.** Baustein 4 zeigt bislang nur
+  *Konsistenz* (widerspruchsfreies Andocken an Mie), nicht eine eigenständige
+  Herleitung. Die echte Validierung ist Baustein 5.
+- Die **Hypothesen-Sammlung (H1–H7)** ist ausdrücklich spekulativ und kein
+  Bestandteil des geprüften Notations-Systems.
+
+---
+
+## 📜 Lizenz
+
+Dieses Projekt steht unter der **Creative Commons CC-BY-SA 4.0** Lizenz:
+Jeder darf die Arbeit nutzen und weiterentwickeln; der Autor muss genannt
+werden; Weiterentwicklungen müssen unter derselben Lizenz frei bleiben.
+
+Vollständiger Lizenztext: https://creativecommons.org/licenses/by-sa/4.0/
+
+---
+
+## 📚 Zitierempfehlung
+
+Manuel Julin (2026). *Hexaphotone — Ein Notations-System für Licht als
+Informationsträger.* Arbeitsversion, Bausteine 1–4. CC-BY-SA 4.0.
+
+---
+
+## 🤝 Beiträge
+
+Diskussionen, Ideen und Erweiterungen sind willkommen.
+Pull Requests und Issues können jederzeit erstellt werden.
